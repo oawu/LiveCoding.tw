@@ -5,11 +5,22 @@
 
 @import "_oa";
 
-// @include font-face("icomoon", font-files("icomoon/icomoon.eot", "icomoon/icomoon.woff", "icomoon/icomoon.ttf", "icomoon/icomoon.svg"));
-// [class^="icon-"], [class*=" icon-"] {
-//   font-family: 'icomoon', Roboto,RobotoDraft,Helvetica,Arial,sans-serif,"微軟正黑體", "Microsoft JhengHei"; speak: none; font-style: normal; font-weight: normal; font-variant: normal; text-transform: none; line-height: 1;
-//   @include font-smoothing(antialiased);
-// }
+@include font-face("icomoon", font-files("icomoon/icomoon.eot", "icomoon/icomoon.woff", "icomoon/icomoon.ttf", "icomoon/icomoon.svg"));
+[class^="icon-"], [class*=" icon-"] {
+  font-family: 'icomoon', Roboto,RobotoDraft,Helvetica,Arial,sans-serif,"微軟正黑體", "Microsoft JhengHei"; speak: none; font-style: normal; font-weight: normal; font-variant: normal; text-transform: none; line-height: 1;
+  @include font-smoothing(antialiased);
+}
+
+.icon-my_location:before {
+  content: "\e900";
+}
+.icon-zoom-in:before {
+  content: "\e987";
+}
+.icon-zoom-out:before {
+  content: "\e988";
+}
+
 
 * {
   &, &:after, &:before {
@@ -36,5 +47,139 @@ html {
     color: rgba(50, 50, 50, 0.8);
 
     @include font-smoothing(antialiased);
+  }
+}
+
+#maps {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+
+}
+#zoom {
+  position: fixed;
+  bottom: 21px;
+  right: 10px;
+  display: inline-block;
+  width: 35px;
+  height: 70px + 1px;
+  background-color: white;
+  z-index: 20;
+  @include border-radius(3px);
+  @include box-shadow(0px 1px 4px rgba(0,0,0,0.3));
+  a {
+    position: relative;
+    display: inline-block;
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
+    cursor: pointer;
+    font-size: 16px;
+
+    &:before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: inline-block;
+      width: 100%;
+      height: 100%;
+      line-height: 35px;
+    }
+
+    + a {
+      margin-top: 1px;
+
+      &:after {
+        content: '';
+        position: absolute;
+        top: -1px;
+        left: 5px;
+        display: inline-block;
+        width: calc(100% - 5px * 2);
+        height: 1px;
+        background-color: rgba(230, 230, 230, 1.00);
+      }
+    }
+  }
+}
+#location {
+  position: fixed;
+  bottom: 21px + 70px + 1px + 10px;
+  right: 10px;
+  display: inline-block;
+  width: 35px;
+  height: 35px;
+  background-color: white;
+  z-index: 20;
+  font-size: 16px;
+  cursor: pointer;
+  @include border-radius(3px);
+  @include box-shadow(0px 1px 4px rgba(0,0,0,0.3));
+
+  &:before {
+    line-height: 35px;
+  }
+}
+
+.user {
+  position: relative;
+  display: inline-block;
+  width: 160px;
+  height: 85px + 10px;
+  // background-color: white;
+
+  img {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    @include border-radius(50%);
+    @include box-shadow(0px 1px 4px rgba(0,0,0,0.3));
+  }
+  .comment {
+    position: absolute;
+    top: 7px;
+    left: 10px;
+    display: inline-block;
+    width: calc(100% - 10px - 5px);
+    height: 35px;
+    line-height: 35px;
+    background-color: white;
+    @include border-radius(3px);
+    @include box-shadow(0 0 4px rgba(0,0,0,0.1), 0px 1px 4px rgba(0,0,0,0.3));
+    
+    &:empty {
+      display: none;
+    }
+
+    &:after, &:before {
+      top: 100%;
+      left: 15px;
+      border: solid transparent;
+      content: " ";
+      height: 0;
+      width: 0;
+      position: absolute;
+      pointer-events: none;
+    }
+    $w: 7px;
+    &:after {
+      border-color: transparent;
+      border-top-color: white;
+      border-width: ($w);
+      margin-left: -($w);
+    }
+    &:before {
+      border-color: transparent;
+      border-top-color: rgba(39, 40, 34, .200);
+      border-width: ($w + 1px);
+      margin-left: -($w + 1px);
+    }
   }
 }
