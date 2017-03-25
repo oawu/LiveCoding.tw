@@ -1,0 +1,130 @@
+/**
+ * @author      OA Wu <comdan66@gmail.com>
+ * @copyright   Copyright (c) 2016 OA Wu Design
+ */
+
+@import "functions/_oa-input";
+@import "functions/_oa-hyperlink";
+@import "functions/_oa-alert";
+@import "functions/_oa-load";
+@import "functions/_oa-table";
+@import "functions/_oa-textarea";
+
+@import "functions/_oa-material";
+
+@mixin icomoon-font($ff){
+  @content;
+  font-family: $ff, Roboto,RobotoDraft,Helvetica,Arial,sans-serif,"微軟正黑體", "Microsoft JhengHei";
+}
+@mixin range-width($min: 0, $max: 0){
+  @if $max == 0 {
+    @media screen and (min-width: $min) {
+      @content;
+    }
+  } @else {
+    @media screen and (max-width: $max - 1px) and (min-width: $min) {
+      @content;
+    }
+  }
+}
+@mixin range-height($min: 0, $max: 0){
+  @if $max == 0 {
+    @media screen and (min-height: $min) {
+      @content;
+    }
+  } @else {
+    @media screen and (max-height: $max - 1px) and (min-height: $min) {
+      @content;
+    }
+  }
+}
+
+@mixin font-smoothing($val: antialiased){
+  -moz-osx-font-smoothing: $val;
+   -webkit-font-smoothing: $val;
+      -moz-font-smoothing: $val;
+       -ms-font-smoothing: $val;
+        -o-font-smoothing: $val;
+}
+
+@mixin clearfix(){
+  *zoom: 1;
+
+  &:after{
+    display: table;
+    content: "";
+    line-height: 0;
+    clear: both;
+  }
+}
+
+@mixin svg-color($color: rgba(255, 255, 255, 1), $hoverColor: rgba(0, 0, 0, 1), $transition: all .3s){
+  &, * {
+    color: $color;
+    fill: $color;
+    @include transition($transition);
+  }
+  &:hover {
+    &, * {
+      color: $hoverColor;
+      fill: $hoverColor;
+    }
+  }
+}
+@mixin split($leftName: '', $rightName: ''){
+  @include clearfix();
+  
+  @if $leftName == '' {
+    $leftName: '> *:first-child'
+  }
+  @if $rightName == '' {
+    $rightName: '> *:last-child'
+  }
+
+  #{$leftName}, #{$rightName} {
+    float: left;
+    position: relative;
+    display: inline-block;
+  }
+  #{$rightName} {
+    float: right;
+  }
+}
+@mixin split-left($leftWidth: 100px, $leftName: '', $rightName: ''){
+  @include split($leftName, $rightName);
+  
+  @if $leftName == '' {
+    $leftName: '> *:first-child'
+  }
+  @if $rightName == '' {
+    $rightName: '> *:last-child'
+  }
+  #{$leftName} {
+    width: $leftWidth;
+  }
+  #{$rightName} {
+    width: calc(100% - #{$leftWidth});
+  }
+}
+@mixin split-right($rightWidth: 100px, $leftName: '', $rightName: ''){
+  @include split($leftName, $rightName);
+  
+  @if $leftName == '' {
+    $leftName: '> *:first-child'
+  }
+  @if $rightName == '' {
+    $rightName: '> *:last-child'
+  }
+  #{$leftName} {
+    width: calc(100% - #{$rightWidth});
+  }
+  #{$rightName} {
+    width: $rightWidth;
+  }
+}
+
+@mixin overflow-docx3(){
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
