@@ -38,3 +38,39 @@ html {
     @include font-smoothing(antialiased);
   }
 }
+
+
+
+#ckb {
+  position: fixed;
+  top: -999px;
+  left: -999px;
+  z-index: -999;
+  @include opacity(0);
+  
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  border: 1px solid rgba(255, 0, 0, .3);
+
+  &:checked {
+    ~ #cover {
+      width: 200px;
+      height: 200px;
+    }
+  }
+}
+
+#cover {
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  background-color: rgba(0, 0, 255, 0.2);
+}
+
+#menu {
+  display: inline-block;
+  width: 45px;
+  height: 45px;
+  border: 1px solid rgba(255, 0, 0, .3);
+}
