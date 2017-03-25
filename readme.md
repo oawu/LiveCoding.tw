@@ -1,25 +1,22 @@
-# Welcome To OA's F2E Framework!
-OA 個人常用的前端工具總集合！ 
+# Welcome To Live Coding Taiwan!
+OA 的 LiveCoding.tw 範例！
 
 ---
-## 聲明
+##聲明  
+
 本作品授權採用 姓名標示-非商業性 2.0 台灣 (CC BY-NC 2.0 TW) 授權，詳見 [http://creativecommons.org/licenses/by-nc/2.0/tw/](http://creativecommons.org/licenses/by-nc/2.0/tw/)
 
 
 <br/>
-## 簡介
-* 個人習慣工具，有興趣的參考吧！
+##簡介  
+
+* 直播前端範例
+* 前端架構來自於 [OAF2E](https://github.com/comdan66/oaf2e)
+* 使用基本的 JavaScript、jQuery、scss、gulp
 
 <br/>
-## 關於
-* 作者名稱 - [OA Wu](http://www.ioa.tw/)
+##關於  
 
-* E-mail - <comdan66@gmail.com>
-
-* 作品名稱 - OA's F2E Framework
-
-* 最新版本 - 1.2
-
-* GitHub - [OA's F2E Framework](https://github.com/comdan66/oaf2e/)
-
-* 更新日期 - 2015/05/26
+* [LiveCoding.tw 官網](https://www.livecoding.tw/)
+* [LiveCoding.tw 粉絲專頁](https://www.facebook.com/LiveCoding.tw/)
+* [LiveCoding.tw Youtube 頻道](https://www.youtube.com/channel/UC_jMDZX_-HTrFVX-UY0He0g)
