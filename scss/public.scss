@@ -5,11 +5,16 @@
 
 @import "_oa";
 
-// @include font-face("icomoon", font-files("icomoon/icomoon.eot", "icomoon/icomoon.woff", "icomoon/icomoon.ttf", "icomoon/icomoon.svg"));
-// [class^="icon-"], [class*=" icon-"] {
-//   font-family: 'icomoon', Roboto,RobotoDraft,Helvetica,Arial,sans-serif,"微軟正黑體", "Microsoft JhengHei"; speak: none; font-style: normal; font-weight: normal; font-variant: normal; text-transform: none; line-height: 1;
-//   @include font-smoothing(antialiased);
-// }
+@include font-face("icomoon", font-files("icomoon/icomoon.eot", "icomoon/icomoon.woff", "icomoon/icomoon.ttf", "icomoon/icomoon.svg"));
+[class^="icon-"], [class*=" icon-"] {
+  font-family: 'icomoon', Roboto,RobotoDraft,Helvetica,Arial,sans-serif,"微軟正黑體", "Microsoft JhengHei"; speak: none; font-style: normal; font-weight: normal; font-variant: normal; text-transform: none; line-height: 1;
+  @include font-smoothing(antialiased);
+}
+
+.icon-check:before {
+  content: "\e900";
+}
+
 
 * {
   &, &:after, &:before {
@@ -41,36 +46,44 @@ html {
 
 
 
-#ckb {
-  position: fixed;
-  top: -999px;
-  left: -999px;
-  z-index: -999;
-  @include opacity(0);
-  
+#box {
+  position: relative;
   display: inline-block;
-  width: 50px;
-  height: 50px;
-  border: 1px solid rgba(255, 0, 0, .3);
+  width: 35px;
+  height: 35px;
+  line-height: 35px;
+  background-color: white;
+  border: 1px solid rgba(39, 40, 34, .300);
+  @include border-radius(3px);
+  
+  > * {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  span {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
 
-  &:checked {
-    ~ #cover {
-      width: 200px;
-      height: 200px;
+    &:before {
+      content: "\e900";
+      font-family: 'icomoon', Roboto,RobotoDraft,Helvetica,Arial,sans-serif,"微軟正黑體", "Microsoft JhengHei"; speak: none; font-style: normal; font-weight: normal; font-variant: normal; text-transform: none; line-height: 1;
+      font-size: 25px;
+      @include opacity(0);
+      @include transition(opacity .3s);
+      
     }
   }
-}
+  input {
+    @include opacity(0);
 
-#cover {
-  display: inline-block;
-  width: 100px;
-  height: 100px;
-  background-color: rgba(0, 0, 255, 0.2);
-}
-
-#menu {
-  display: inline-block;
-  width: 45px;
-  height: 45px;
-  border: 1px solid rgba(255, 0, 0, .3);
+    &:checked {
+      ~ span {
+        &:before {
+          @include opacity(1);
+        }
+      }
+    }
+  }
 }
