@@ -130,23 +130,42 @@ html {
 }
 
 #products {
-  background-color: rgba(0, 0, 255, 0.2);
   .container {
-    background-color: rgba(255, 0, 0, 0.2);
+    @include range-width(0, 980px){
+      padding: 0;
+    };
     @include clearfix();
     
     .product {
       border: 1px solid rgba(255, 0, 0, .3);
       float: left;
-      width: calc(100% / 3 - (16px * 2) / 3);
       height: 160px;
 
-      &:nth-child(3n + 2), &:nth-child(3n + 3) {
-        margin-left: 16px;
+      @include range-width(0, 400px){
+        width: 100%;
+        + * {
+          margin-top: 16px;
+        }
       }
-      &:nth-child(n + 4) {
-        margin-top: 16px;
+      @include range-width(400px, 500px){
+        width: calc(50% - 16px / 2);
+        &:nth-child(2n + 2) {
+          margin-left: 16px;
+        }
+        &:nth-child(n + 3) {
+          margin-top: 16px;
+        }
       }
+      @include range-width(500px){
+        width: calc(100% / 3 - (16px * 2) / 3);
+        &:nth-child(3n + 2), &:nth-child(3n + 3) {
+          margin-left: 16px;
+        }
+        &:nth-child(n + 4) {
+          margin-top: 16px;
+        }
+      };
+
     } 
   }
 }
