@@ -5,11 +5,16 @@
 
 @import "_oa";
 
-// @include font-face("icomoon", font-files("icomoon/icomoon.eot", "icomoon/icomoon.woff", "icomoon/icomoon.ttf", "icomoon/icomoon.svg"));
-// [class^="icon-"], [class*=" icon-"] {
-//   font-family: 'icomoon', Roboto,RobotoDraft,Helvetica,Arial,sans-serif,"微軟正黑體", "Microsoft JhengHei"; speak: none; font-style: normal; font-weight: normal; font-variant: normal; text-transform: none; line-height: 1;
-//   @include font-smoothing(antialiased);
-// }
+@include font-face("icomoon", font-files("icomoon/fonts/icomoon.eot", "icomoon/fonts/icomoon.woff", "icomoon/fonts/icomoon.ttf", "icomoon/fonts/icomoon.svg"));
+[class^="icon-"], [class*=" icon-"] {
+  font-family: 'icomoon', Roboto,RobotoDraft,Helvetica,Arial,sans-serif,"微軟正黑體", "Microsoft JhengHei"; speak: none; font-style: normal; font-weight: normal; font-variant: normal; text-transform: none; line-height: 1;
+  @include font-smoothing(antialiased);
+}
+
+.icon-search:before {
+  content: "\e986";
+}
+
 
 * {
   &, &:after, &:before {
@@ -37,4 +42,85 @@ html {
 
     @include font-smoothing(antialiased);
   }
+}
+
+#header {
+  $w: 65px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  display: inline-block;
+  width: 100%;
+  height: $w;
+  background-color: rgba(66, 133, 244, 1.00);
+  z-index: 50;
+
+  + * {
+    margin-top: $w;
+  }
+
+  .container {
+    display: inline-block;
+    max-width: 960px;
+    width: 100%;
+    height: 100%;
+    // background-color: rgba(0, 0, 255, 0.2);
+    @include clearfix();
+
+    > * {
+      display: inline-block;
+      float: left;
+      // border: 1px solid rgba(255, 0, 0, .3);
+    }
+    .logo {
+      width: 150px;
+      height: 100%;
+      line-height: 55px;
+      font-size: 30px;
+      color: white;
+      letter-spacing: 3px;
+      text-align: left;
+    }
+    .avatar {
+      width: 35px;
+      height: 35px;
+      margin-top: 10px;
+      @include border-radius(50%);
+      overflow: hidden;
+
+      img {
+        width: 100%;
+      }
+    }
+    .search {
+      position: relative;
+      width: calc(100% - 150px - 35px);
+      height: 100%;
+      // background-color: rgba(0, 0, 255, 0.2);
+      padding: 0 10px;
+
+      label {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        display: inline-block;
+        width: 35px;
+        height: 35px;
+        line-height: 35px;
+        cursor: pointer;
+        // border: 1px solid rgba(255, 0, 0, .3);
+      }
+      input {
+        @include input;
+        width: 100%;
+        height: 35px;
+        margin-top: 10px;
+        padding-left: 35px + 5px;
+      }
+    }
+  }
+}
+
+#article {
+  border: 1px solid rgba(255, 0, 0, .3);
 }
