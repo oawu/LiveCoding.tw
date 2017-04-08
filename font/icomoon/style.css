@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'icomoon';
-  src:  url('fonts/icomoon.eot?1amafa');
-  src:  url('fonts/icomoon.eot?1amafa#iefix') format('embedded-opentype'),
-    url('fonts/icomoon.ttf?1amafa') format('truetype'),
-    url('fonts/icomoon.woff?1amafa') format('woff'),
-    url('fonts/icomoon.svg?1amafa#icomoon') format('svg');
+  src:  url('fonts/icomoon.eot?lzcs27');
+  src:  url('fonts/icomoon.eot?lzcs27#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?lzcs27') format('truetype'),
+    url('fonts/icomoon.woff?lzcs27') format('woff'),
+    url('fonts/icomoon.svg?lzcs27#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -24,4 +24,49 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-calendar:before {
+  content: "\e900";
+}
+.icon-date:before {
+  content: "\e900";
+}
+.icon-schedule:before {
+  content: "\e900";
+}
+.icon-time:before {
+  content: "\e900";
+}
+.icon-pin-alt:before {
+  content: "\e901";
+}
+.icon-location:before {
+  content: "\e901";
+}
+.icon-map:before {
+  content: "\e901";
+}
+.icon-marker:before {
+  content: "\e901";
+}
+.icon-clock:before {
+  content: "\e902";
+}
+.icon-time2:before {
+  content: "\e902";
+}
+.icon-history:before {
+  content: "\e902";
+}
+.icon-facebook:before {
+  content: "\ea90";
+}
+.icon-twitter:before {
+  content: "\ea96";
+}
+.icon-linkedin2:before {
+  content: "\eaca";
+}
+.icon-share:before {
+  content: "\e903";
+}
 

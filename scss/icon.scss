@@ -1,0 +1,29 @@
+@import "_oa";
+
+@include font-face("icomoon", font-files("icomoon/fonts/icomoon.eot", "icomoon/fonts/icomoon.woff", "icomoon/fonts/icomoon.ttf", "icomoon/fonts/icomoon.svg"));
+[class^="icon-"], [class*=" icon-"] {
+  font-family: "icomoon"; speak: none; font-style: normal; font-weight: normal; font-variant: normal; text-transform: none; line-height: 1;
+  @include font-smoothing(antialiased);
+}
+
+.icon-calendar:before {
+  content: "\e900";
+}
+.icon-pin-alt:before {
+  content: "\e901";
+}
+.icon-clock:before {
+  content: "\e902";
+}
+.icon-facebook:before {
+  content: "\ea90";
+}
+.icon-twitter:before {
+  content: "\ea96";
+}
+.icon-share:before {
+  content: "\e903";
+}
+.icon-linkedin:before {
+  content: "\eaca";
+}
