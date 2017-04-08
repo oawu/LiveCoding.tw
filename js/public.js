@@ -4,5 +4,6 @@
  */
 
 $(function () {
-
+  $("#event .event").imgLiquid ();
+  $("#photo .photo").imgLiquid ();
 });
