@@ -32,3 +32,104 @@ html {
     @include font-smoothing(antialiased);
   }
 }
+
+$width: 600px;
+
+#top {
+  display: block;
+  padding: 20px 0;
+  
+  .logo {
+    display: inline-block;
+    width: 200px;
+    height: 80px;
+    line-height: 80px;
+    margin: 0 auto;
+    font-size: 70px;
+  }
+}
+
+#header {
+  display: block;
+  background-color: rgba(40, 11, 69, 1.00);
+  
+  .container {
+    display: inline-block;
+    max-width: $width;
+    width: 100%;
+    @include clearfix();
+
+    > a {
+      float: left;
+      display: inline-block;
+      color: rgba(255, 255, 255, .7500);
+      padding: 15px 0;
+      text-decoration: none;
+      @include transition(color .3s);
+      // border: 1px solid white;
+
+      &:hover {
+        color: rgba(255, 255, 255, 1.00);
+      }
+
+      width: calc(100% / 6);
+      @include range-width(0, 500px){
+        width: calc(100% / 3);
+      };
+    }
+  }
+}
+
+#banner {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  background-color: rgba(0, 0, 255, 0.2);
+  padding: 70px 0;
+  overflow: hidden;
+
+  img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: inline-block;
+    width: 100%;
+    z-index: 1;
+  }
+
+  .container {
+    position: relative;
+    display: inline-block;
+    max-width: $width;
+    width: 100%;
+    border: 1px solid rgba(255, 0, 0, .3);
+    z-index: 2;
+
+
+    div {
+      font-size: 20px;
+      display: inline-block;
+      width: 100%;
+      border: 1px solid rgba(255, 0, 0, .3);
+    }
+    h1 {
+      display: inline-block;
+      width: 100%;
+      border: 1px solid rgba(255, 0, 0, .3);
+    }
+    p {
+      display: inline-block;
+      width: 100%;
+      border: 1px solid rgba(255, 0, 0, .3);
+    }
+    a {
+      display: inline-block;
+      width: 200px;
+      height: 35px;
+      line-height: 35px;
+      text-decoration: none;
+      background-color: rgba(251, 110, 68, 1.00);
+      @include border-radius(35px);
+    }
+  }
+}
