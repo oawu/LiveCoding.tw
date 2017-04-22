@@ -246,3 +246,41 @@
     }
   } 
 }
+
+#footer {
+  background-color: rgba(25, 26, 30, 1.00);
+  padding: 50px 0;
+  padding-bottom: 30px;
+
+  .container {
+    padding: 10px;
+    @include clearfix();
+
+    > * {
+      display: inline-block;
+      float: left;
+      color: rgba(89, 90, 94, 1.00);
+      font-size: 14px;
+    }
+    .left {
+      text-align: left;
+      width: calc(100% - 120px);
+      @include range-width(0, 450px) {
+        width: 100%;
+        text-align: center;
+      };
+    }
+    .right {
+      text-align: right;
+      width: 120px;
+      @include range-width(0, 450px) {
+        width: 100%;
+        margin-top: 16px;
+        text-align: center;
+      };
+      a {
+        color: rgba(89, 90, 94, 1.00);
+      }
+    }
+  } 
+}
