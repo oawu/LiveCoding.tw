@@ -154,7 +154,7 @@ $width: 600px;
 }
 
 
-#event, #photo, #info {
+#event, #photo, #info, #register, #more {
   display: inline-block;
   width: 100%;
   margin-top: 100px;
@@ -179,6 +179,10 @@ $width: 600px;
         font-size: 25px;
       }
     }
+  }
+}
+#event, #photo, #info {
+  .container {
     > a {
       display: inline-block;
       width: 150px;
@@ -487,4 +491,110 @@ $width: 600px;
       }
     }
   }
+}
+
+
+#register {
+  background-color: rgba(251, 110, 68, 1.00);
+
+  .container {
+    padding: 50px 0;
+    @include clearfix();
+    @include range-width(0, 600px + 10px * 2){
+      padding-right: 10px;
+    };
+    
+    > * {
+      float: left;
+      display: inline-block;
+      height: 45px;
+      line-height: 45px;
+    }
+    div {
+      width: 45px;
+      color: white;
+      font-size: 25px;
+    }
+    span {
+      width: calc(100% - 45px - 120px);
+      padding: 0 10px;
+      text-align: left;
+      color: white;
+      font-size: 20px;
+      @include overflow-docx3();
+      
+      @include range-width(0, 480px){
+        width: calc(100% - 45px);
+      }
+    }
+    a {
+      width: 120px;
+      border: 2px solid white;
+      color: white;
+      text-decoration: none;
+      @include border-radius(45px / 2);
+      @include transition(color .3s, background-color .3s);
+      @include range-width(0, 480px){
+        margin: 0 auto;
+        margin-top: 16px;
+        float: none;
+      }
+
+      &:hover {
+        color: rgba(251, 110, 68, 1.00);
+        background-color: white;
+      }
+    }
+  }
+}
+
+#more {
+  margin-top: 0;
+  padding: 40px 0;
+  background-color: rgba(243, 244, 245, 1.00);
+  .container {
+    @include clearfix();
+    > * {
+      display: inline-block;
+      width: 50%;
+      float: left;
+      text-align: left;
+      padding: 0 10px;
+      @include range-width(0, 550px) {
+        width: 100%;
+
+        + * {
+          margin-top: 36px;
+        }
+      };
+    }
+    h3 {
+      margin-top: 0;
+    }
+    p {
+      color: rgba(156, 157, 158, 1.00);
+      font-size: 14px;
+    }
+    a {
+      display: inline-block;
+      width: 130px;
+      height: 35px;
+      line-height: 35px;
+      margin-top: 20px;
+      text-decoration: none;
+      text-align: center;
+      color: rgba(178 * 2/3, 179 * 2/3, 180 * 2/3, 1.00);
+      font-size: 14px;
+      border: 1px solid rgba(178, 179, 180, 1.00);
+
+      @include border-radius(35px / 2);
+      @include transition(background-color .3s, color .3s, border-color .3s);
+      
+      &:hover {
+        background-color: rgba(119, 119, 120, 1.00);
+        color: white;
+        border-color: rgba(119, 119, 120, 1.00);
+      }
+    }
+  } 
 }
