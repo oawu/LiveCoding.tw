@@ -1,0 +1,157 @@
+/**
+ * @author      OA Wu <comdan66@gmail.com>
+ * @copyright   Copyright (c) 2016 OA Wu Design
+ */
+
+@import "_oa";
+
+#ticket {
+  margin-top: 0;
+  padding: 40px 0;
+  background-color: rgba(47, 44, 66, 1.00);
+
+  .container {
+    @include range-width(0, 620px){
+      padding: 0 10px;
+    };
+    header {
+      span, h2 {
+        color: white;
+      }
+    }
+
+    .ticket {
+      display: inline-block;
+      width: 100%;
+      padding: 20px;
+      background-color: rgba(244, 245, 246, 1.00);
+      @include border-radius(3px);
+      margin-top: 16px;
+
+      &:nth-child(2) {
+        margin-top: 40px;
+      }
+
+      > * {
+        display: inline-block;
+        float: left;
+      }
+
+      .price {
+        width: 80px;
+        height: 80px;
+        background-color: rgba(251, 110, 68, 1.00);
+        color: rgba(253, 254, 255, 1.00);
+        padding: 10px 0;
+        @include border-radius(2px);
+        @include range-width(0, 360px){
+          float: none;
+        }
+        span {
+          display: inline-block;
+          width: 100%;
+          height: 40px - 10px;
+          line-height: 40px - 10px;
+          font-size: 16px;
+          padding: 0 15px;
+          text-align: right;
+          &:last-child {
+            font-weight: bold;
+            font-size: 20px;
+
+            &:before {
+              content: '$';
+              display: inline-block;
+              font-size: 14px;
+              margin-right: 3px;
+              margin-top: -5px;
+            }
+          }
+        }
+      }
+      .desc {
+        width: calc(100% - 80px - 100px);
+        padding: 0 16px;
+        @include range-width(0, 360px){
+          width: 100%;
+          padding: 0;
+          float: none;
+          margin-top: 30px;
+        }
+        @include range-width(360px, 500px){
+          width: calc(100% - 80px);
+          padding-right: 0;
+        };
+
+        span {
+          display: inline-block;
+          width: 100%;
+          font-size: 13px;
+          color: rgba(153, 154, 155, 1.00);
+          text-align: left;
+          position: relative;
+          padding-left: 12px;
+          
+          + span {
+            margin-top: 4px;
+          }
+
+          &:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 6px;
+
+            display: inline-block;
+            width: 7px;
+            height: 7px;
+            @include border-radius(50%);
+            background-color: rgba(251, 110, 68, 1.00);
+          }
+        }
+      }
+      > a {
+        width: 100px;
+        height: 35px;
+        line-height: 35px;
+        text-decoration: none;
+        border: 1px solid rgba(170, 171, 172, 1.00);
+        color: rgba(150, 150, 150, 1.00);
+        font-size: 13px;
+        margin-top: 20px;
+        @include border-radius(35px / 2);
+        @include transition(background-color .3s, color .3s, border-color .3s);
+        
+
+        &:hover {
+          background-color: rgba(150, 150, 150, 1.00);
+          color: white;
+          border-color: rgba(150, 150, 150, 1.00);;
+        }
+        @include range-width(0, 500px){
+          float: none;
+          margin-top: 30px;
+        }
+      }
+    }
+    > a {
+      display: inline-block;
+      width: 130px;
+      height: 35px;
+      line-height: 35px;
+      text-decoration: none;
+      border: 1px solid rgba(170, 171, 172, 1.00);
+      color: rgba(170, 171, 172, 1.00);
+      margin-top: 30px;
+      @include border-radius(35px / 2);
+      @include transition(color .3s, background-color .3s, border-color .3s);
+      
+      
+      &:hover {
+        color: rgba(47, 44, 66, 1.00);
+        background-color: white;
+        border-color: white;
+      }
+    }
+  }
+}
