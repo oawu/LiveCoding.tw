@@ -11,11 +11,11 @@ $(function () {
   //   $('.sub').height(0);
   // }, 4000);
 
-  // $('#menu .sub').each (function () {
-  //   $(this).addClass ('n' + $(this).find ('a').length);
-  // });
-  // $('#menu .group > span').click (function () {
-  //   $(this).toggleClass ('show');
-  // });
+  $('#menu .sub').each (function () {
+    $(this).addClass ('n' + $(this).find ('a').length);
+  });
+  $('#menu .group > span').click (function () {
+    $(this).toggleClass ('show');
+  });
 
 });
