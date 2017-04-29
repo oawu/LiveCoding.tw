@@ -161,6 +161,9 @@ $logoWidth: 230px;
       padding: 0 $w;
       font-size: 20px;
       cursor: pointer;
+      @include opacity(.5);
+      @include transition(opacity .3s);
+      
       
       &:before, &:after {
         position: absolute;
@@ -181,6 +184,10 @@ $logoWidth: 230px;
         right: 0;
       }
       &.show {
+        @include opacity(1);
+        &:after {
+          @include rotate(180deg);
+        }
         + .sub {
           @include opacity(1);
           @for $i from 1 through 5 {
@@ -188,6 +195,15 @@ $logoWidth: 230px;
               height: 35px * $i;
             }
           }
+        }
+      }
+
+      &.ani {
+        &:after {
+          @include transition(transform .3s);
+        }
+        + .sub {
+          @include transition(height .3s, opacity .3s);
         }
       }
     }
@@ -199,7 +215,6 @@ $logoWidth: 230px;
       height: 0;
       overflow: hidden;
       @include opacity(0);
-      @include transition(height .3s, opacity .3s);
 
       border-top: 1px solid rgba(52, 56, 61, 1.00);
       border-bottom: 1px solid rgba(52, 56, 61, 1.00);
@@ -228,6 +243,9 @@ $logoWidth: 230px;
           line-height: $w;
           // border: 1px solid rgba(255, 0, 0, .3);
           text-align: center;
+        }
+        &.active {
+          color: rgba(0, 150, 136, 1.00);
         }
       }
     }

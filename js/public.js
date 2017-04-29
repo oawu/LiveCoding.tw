@@ -10,12 +10,12 @@ $(function () {
   // setTimeout (function () {
   //   $('.sub').height(0);
   // }, 4000);
+  var $menuSpan = $('#menu .group > span');
+  $('#menu .sub').each (function () { $(this).addClass ('n' + $(this).find ('a').length); });
+  $menuSpan.click (function () { $(this).toggleClass ('show'); });
+  $('#menu .group .sub a.active').parent ().prev ().addClass ('show');
+  setTimeout (function () { $menuSpan.addClass ('ani'); }, 500);
 
-  $('#menu .sub').each (function () {
-    $(this).addClass ('n' + $(this).find ('a').length);
-  });
-  $('#menu .group > span').click (function () {
-    $(this).toggleClass ('show');
-  });
+
 
 });
