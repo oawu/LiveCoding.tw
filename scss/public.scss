@@ -26,9 +26,210 @@ html {
     min-height: 100%;
     font-size: medium;
     font-family: Roboto,RobotoDraft,Helvetica,Arial,sans-serif,"微軟正黑體", "Microsoft JhengHei";
-    background: white;
+    background: rgba(235, 235, 235, 1.00);
     color: rgba(50, 50, 50, 0.8);
 
     @include font-smoothing(antialiased);
+  }
+}
+
+$headerHeight: 55px;
+$logoWidth: 230px;
+
+#header {
+  position: fixed;
+  left: 0;
+  top: 0;
+  display: inline-block;
+  width: 100%;
+  height: $headerHeight;
+  background-color: white;
+  z-index: 100;
+  @include clearfix();
+  @include box-shadow(0 2px 5px 0 rgba(0,0,0,0.16));
+  
+  > * {
+    float: left;
+    display: inline-block;
+  }
+  .logo {
+    width: $logoWidth;
+    height: 100%;
+    background-color: rgba(0, 150, 136, 1.00);
+    color: white;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+
+
+    > * {
+      font-size: 20px;
+      &:first-child {
+        margin-right: 5px;
+      }
+    }
+  }
+  .right {
+    width: $headerHeight;
+    height: $headerHeight;
+    text-align: center;
+
+    .avatar {
+      display: inline-block;
+
+      width: $headerHeight - 10px;
+      height: $headerHeight - 10px;
+      margin-top: 5px;
+      @include border-radius(50%);
+      overflow: hidden;
+      cursor: pointer;
+
+      img {
+        width: 100%;
+      }
+    }
+  }
+  .center {
+    width: calc(100% - #{$logoWidth} - #{$headerHeight});
+    text-align: left;
+    
+    > *:first-child {
+      display: inline-block;
+      height: $headerHeight;
+      width: $headerHeight;
+      text-align: center;
+      line-height: $headerHeight;
+      font-size: 22px;
+      cursor: pointer;
+      @include transition(background-color .3s);
+
+      &:hover {
+        background-color: rgba(220, 220, 220, 1.00);
+      }
+    }
+  }
+}
+
+
+#main {
+  display: inline-block;
+  width: 100%;
+  background-color: rgba(0, 0, 255, 0.2);
+  padding-top: $headerHeight;
+  padding-left: $logoWidth;
+  
+  > div {
+    display: inline-block;
+    width: 100%;
+    // border: 1px solid rgba(255, 0, 0, .3);
+    padding: 16px;
+    text-align: left;
+  }
+}
+
+#menu {
+  position: fixed;
+  left: 0;
+  top: 0;
+
+  display: inline-block;
+  width: $logoWidth;
+  height: 100%;
+  background-color: rgba(38, 43, 51, 1.00); 
+  z-index: 50;
+  padding-top: $headerHeight;
+  color: white;
+  text-align: left;
+
+  .group {
+    display: inline-block;
+    width: 100%;
+    // border: 1px solid rgba(255, 0, 0, .3);
+
+    > span {
+      $w: 40px;
+
+      position: relative;
+      display: inline-block;
+      width: 100%;
+      height: $w;
+      line-height: $w;
+      // background-color: rgba(0, 0, 255, 0.2);
+      padding: 0 $w;
+      font-size: 20px;
+      cursor: pointer;
+      
+      &:before, &:after {
+        position: absolute;
+        top: 0;
+        display: inline-block;
+        width: $w;
+        height: $w;
+        line-height: $w;
+        // border: 1px solid rgba(255, 0, 0, .3);
+        text-align: center;
+      }
+      &:before {
+        left: 0;
+      }
+      &:after {
+        font-family: "icomoon";
+        content: "\e902";
+        right: 0;
+      }
+      &.show {
+        + .sub {
+          @include opacity(1);
+          @for $i from 1 through 5 {
+            &.n#{$i} {
+              height: 35px * $i;
+            }
+          }
+        }
+      }
+    }
+
+    .sub {
+      display: block;
+      width: 100%;
+      
+      height: 0;
+      overflow: hidden;
+      @include opacity(0);
+      @include transition(height .3s, opacity .3s);
+
+      border-top: 1px solid rgba(52, 56, 61, 1.00);
+      border-bottom: 1px solid rgba(52, 56, 61, 1.00);
+      background-color: rgba(29, 32, 38, 1.00);
+      // background-color: rgba(0, 128, 0, 0.2);
+
+
+      > a {
+        $w: 35px;
+        position: relative;
+        display: inline-block;
+        width: 100%;
+        height: 35px;
+        line-height: 35px;
+        font-size: 14px;
+        padding-left: $w + 10px;
+        cursor: pointer;
+
+        &:before {
+          position: absolute;
+          top: 0;
+          left: 10px;
+          display: inline-block;
+          width: $w;
+          height: $w;
+          line-height: $w;
+          // border: 1px solid rgba(255, 0, 0, .3);
+          text-align: center;
+        }
+      }
+    }
   }
 }
