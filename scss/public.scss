@@ -72,6 +72,11 @@ $logoWidth: 230px;
       font-size: 20px;
       &:first-child {
         margin-right: 5px;
+        @include transition(font-size .3s);
+      }
+      &:last-child {
+        @include transition(opacity .3s);
+        @include opacity(1);
       }
     }
   }
@@ -154,6 +159,7 @@ $logoWidth: 230px;
   .group {
     display: inline-block;
     width: 100%;
+    overflow: hidden;
     // border: 1px solid rgba(255, 0, 0, .3);
 
     > span {
@@ -168,6 +174,7 @@ $logoWidth: 230px;
       padding: 0 $w;
       font-size: 20px;
       cursor: pointer;
+      @include overflow-docx3();
       @include opacity(.5);
       @include transition(opacity .3s);
       
@@ -274,6 +281,14 @@ $logoWidth: 230px;
     ~ #header {
       .logo {
         width: $headerHeight;
+        *:first-child {
+          margin-right: 0;
+          font-size: 30px;
+        }
+        *:last-child {
+          display: none;
+          @include opacity(0);
+        }
       }
       .center {
         width: calc(100% - #{$headerHeight} - #{$headerHeight});
@@ -281,9 +296,27 @@ $logoWidth: 230px;
     }
     ~ #menu {
       width: $headerHeight;
+      .group {
+        > span {
+          width: $headerHeight;
+          padding-left: $headerHeight;
+          &:before {
+            width: $headerHeight;
+          }
+          &:after {
+            display: none;
+          }
+        }
+        .sub {
+          a {
+            padding-left: $headerHeight;
+          }
+        }
+      }
     }
     ~ #main {
       padding-left: $headerHeight;
+
     }
   }
 }
