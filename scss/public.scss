@@ -63,6 +63,9 @@ $logoWidth: 230px;
     flex-wrap: nowrap;
     justify-content: center;
     align-items: center;
+    
+    @include transition(width .3s);
+    
 
 
     > * {
@@ -95,6 +98,7 @@ $logoWidth: 230px;
   .center {
     width: calc(100% - #{$logoWidth} - #{$headerHeight});
     text-align: left;
+    @include transition(width .3s);
     
     > *:first-child {
       display: inline-block;
@@ -120,6 +124,8 @@ $logoWidth: 230px;
   background-color: rgba(0, 0, 255, 0.2);
   padding-top: $headerHeight;
   padding-left: $logoWidth;
+  @include transition(padding-left .3s);
+  
   
   > div {
     display: inline-block;
@@ -143,6 +149,7 @@ $logoWidth: 230px;
   padding-top: $headerHeight;
   color: white;
   text-align: left;
+  @include transition(width .3s);
 
   .group {
     display: inline-block;
@@ -185,6 +192,7 @@ $logoWidth: 230px;
       }
       &.show {
         @include opacity(1);
+
         &:after {
           @include rotate(180deg);
         }
@@ -248,6 +256,34 @@ $logoWidth: 230px;
           color: rgba(0, 150, 136, 1.00);
         }
       }
+    }
+  }
+}
+
+.hide_checkbox {
+  position: fixed;
+  left: -999px;
+  top: -999;
+  display: none;
+  @include opacity(0);
+  z-index: -999;
+}
+
+#menu_checkbox {
+  &:checked {
+    ~ #header {
+      .logo {
+        width: $headerHeight;
+      }
+      .center {
+        width: calc(100% - #{$headerHeight} - #{$headerHeight});
+      }
+    }
+    ~ #menu {
+      width: $headerHeight;
+    }
+    ~ #main {
+      padding-left: $headerHeight;
     }
   }
 }
