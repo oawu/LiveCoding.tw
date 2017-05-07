@@ -120,6 +120,17 @@ $logoWidth: 230px;
       }
     }
   }
+  @include range-width(0, 750px){
+    .logo {
+      width: 0;
+    }
+    .right {
+      width: $headerHeight;
+    }
+    .center {
+      width: calc(100% - #{$headerHeight});
+    }
+  };
 }
 
 
@@ -131,7 +142,9 @@ $logoWidth: 230px;
   padding-left: $logoWidth;
   @include transition(padding-left .3s);
   
-  
+  @include range-width(0, 750px){
+    padding-left: 0;
+  }
   > div {
     display: inline-block;
     width: 100%;
@@ -155,6 +168,8 @@ $logoWidth: 230px;
   color: white;
   text-align: left;
   @include transition(width .3s);
+
+
 
   .group {
     display: inline-block;
@@ -265,6 +280,81 @@ $logoWidth: 230px;
       }
     }
   }
+  .logo {
+    width: $logoWidth;
+    height: $headerHeight;
+    background-color: rgba(0, 150, 136, 1.00);
+    color: white;
+
+    display: none;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    
+    @include transition(width .3s);
+    
+
+
+    > * {
+      font-size: 20px;
+      &:first-child {
+        margin-right: 5px;
+        @include transition(font-size .3s);
+      }
+      &:last-child {
+        @include transition(opacity .3s);
+        @include opacity(1);
+      }
+    }
+  }
+  + label {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: none;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(39, 40, 34, .40);
+    z-index: -999;
+    @include opacity(0);
+    @include transition(opacity .3s);
+
+    &:before {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      display: inline-block;
+      width: 35px;
+      height: 35px;
+      line-height: 35px;
+      font-size: 25px;
+      color: rgba(255, 255, 255, .7500);
+      @include transition(color .3s);
+      // &:hover {
+      //   color: rgba(255, 255, 255, 1);
+      // }
+      @include text-shadow(0 0 2px rgba(39, 40, 34, .500));
+    }
+
+    &:hover {
+      &:before {
+        color: rgba(255, 255, 255, 1);
+      }
+    }
+  }
+  @include range-width(0, 750px){
+    z-index: 150;
+    padding-top: 0;
+    left: -$logoWidth;
+    @include opacity(0);
+    @include box-shadow(0 0 5px rgba(39, 40, 34, .500));
+    @include transition(opacity .3s, left .3s);
+    
+    .logo {
+      display: flex;
+    }
+  }
 }
 
 .hide_checkbox {
@@ -279,44 +369,58 @@ $logoWidth: 230px;
 #menu_checkbox {
   &:checked {
     ~ #header {
-      .logo {
-        width: $headerHeight;
-        *:first-child {
-          margin-right: 0;
-          font-size: 30px;
+      @include range-width(750px){
+        .logo {
+          width: $headerHeight;
+          *:first-child {
+            margin-right: 0;
+            font-size: 30px;
+          }
+          *:last-child {
+            display: none;
+            @include opacity(0);
+          }
         }
-        *:last-child {
-          display: none;
-          @include opacity(0);
+        .center {
+          width: calc(100% - #{$headerHeight} - #{$headerHeight});
         }
-      }
-      .center {
-        width: calc(100% - #{$headerHeight} - #{$headerHeight});
       }
     }
     ~ #menu {
-      width: $headerHeight;
-      .group {
-        > span {
-          width: $headerHeight;
-          padding-left: $headerHeight;
-          &:before {
-            width: $headerHeight;
-          }
-          &:after {
-            display: none;
-          }
+      @include range-width(0, 750px){
+        left: 0;
+        @include opacity(1);
+        + label {
+          display: inline-block;
+          z-index: 150 - 1;
+          @include opacity(1);
         }
-        .sub {
-          a {
+      }
+      @include range-width(750px){
+        width: $headerHeight;
+        .group {
+          > span {
+            width: $headerHeight;
             padding-left: $headerHeight;
+            &:before {
+              width: $headerHeight;
+            }
+            &:after {
+              display: none;
+            }
+          }
+          .sub {
+            a {
+              padding-left: $headerHeight;
+            }
           }
         }
       }
     }
     ~ #main {
-      padding-left: $headerHeight;
-
+      @include range-width(750px){
+        padding-left: $headerHeight;
+      }
     }
   }
 }

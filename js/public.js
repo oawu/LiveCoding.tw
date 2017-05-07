@@ -4,12 +4,7 @@
  */
 
 $(function () {
-  // setTimeout (function () {
-  //   $('.sub').height(100);
-  // }, 2000);
-  // setTimeout (function () {
-  //   $('.sub').height(0);
-  // }, 4000);
+
   var $menuSpan = $('#menu .group > span');
   $('#menu .sub').each (function () { $(this).addClass ('n' + $(this).find ('a').length); });
   $menuSpan.click (function () { $(this).toggleClass ('show'); });

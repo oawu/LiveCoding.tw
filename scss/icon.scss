@@ -6,14 +6,17 @@
   @include font-smoothing(antialiased);
 }
 
-.icon-keyboard_arrow_down:before {
-  content: "\e902";
+.icon-cross:before {
+  content: "\e903";
 }
 .icon-menu:before {
   content: "\e900";
 }
 .icon-home:before {
   content: "\e901";
+}
+.icon-keyboard_arrow_down:before {
+  content: "\e902";
 }
 .icon-images:before {
   content: "\e90e";
