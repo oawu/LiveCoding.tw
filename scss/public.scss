@@ -86,17 +86,36 @@ $logoWidth: 230px;
     text-align: center;
 
     .avatar {
+      position: relative;
       display: inline-block;
 
       width: $headerHeight - 10px;
       height: $headerHeight - 10px;
       margin-top: 5px;
-      @include border-radius(50%);
-      overflow: hidden;
+      // overflow: hidden;
       cursor: pointer;
 
       img {
         width: 100%;
+        @include border-radius(50%);
+      }
+
+      &:after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        display: none;
+        width: 13px;
+        height: 13px;
+        @include border-radius(50%);
+        background-color: rgba(236, 83, 70, 1.00);
+        border: 2px solid white;
+      }
+      &.not {
+        &:after {
+          display: inline-block;
+        }
       }
     }
   }
