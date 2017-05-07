@@ -350,9 +350,6 @@ $logoWidth: 230px;
       font-size: 25px;
       color: rgba(255, 255, 255, .7500);
       @include transition(color .3s);
-      // &:hover {
-      //   color: rgba(255, 255, 255, 1);
-      // }
       @include text-shadow(0 0 2px rgba(39, 40, 34, .500));
     }
 
@@ -439,6 +436,79 @@ $logoWidth: 230px;
     ~ #main {
       @include range-width(750px){
         padding-left: $headerHeight;
+      }
+    }
+  }
+}
+#user_info {
+  position: fixed;
+  top: $headerHeight + 4px;
+  right: 4px;
+  width: 250px;
+  height: 300px;
+  // border: 1px solid rgba(255, 0, 0, .3);
+  background-color: white;
+  @include border-radius(2px);
+  @include box-shadow(0 0 3px rgba(39, 40, 34, .500));
+  @include transition(opacity .3s);
+  
+  display: inline-block;
+  z-index: -999;
+  @include opacity(0);
+
+
+  $w: 10px;
+  &:after, &:before {
+    bottom: 100%;
+    right: 23px;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+  }
+
+  &:after {
+    border-color: transparent;
+    border-bottom-color: white;
+    border-width: $w;
+    margin-right: -$w;
+  }
+  &:before {
+    border-color: transparent;
+    border-bottom-color: rgba(39, 40, 34, .300);
+    border-width: ($w + 1px);
+    margin-right: -($w + 1px);
+  }
+
+  + label {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(39, 40, 34, .40);
+    @include transition(opacity .3s);
+
+
+    display: inline-block;
+    z-index: -999;
+    @include opacity(0);
+  }
+}
+
+#user_info_checkbox {
+  &:checked {
+    ~ #user_info {
+      // display: inline-block;
+      z-index: 300;
+      @include opacity(1);
+
+      + label {
+        // display: inline-block;
+        z-index: 300 - 1;
+        @include opacity(1);
       }
     }
   }

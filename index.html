@@ -16,6 +16,7 @@
   </head>
   <body lang="zh-tw">
     <input type='checkbox' id='menu_checkbox' class='hide_checkbox' />
+    <input type='checkbox' id='user_info_checkbox' class='hide_checkbox' />
     
     <header id='header'>
       <div class='logo'>
@@ -29,9 +30,9 @@
       
       <div class='right'>
         
-        <div class='avatar not'>
+        <label class='avatar not' for='user_info_checkbox'>
           <img src='https://scontent-tpe1-1.xx.fbcdn.net/v/t31.0-8/17388942_1664226550545538_8427538936397700484_o.png?oh=4baa848cf1aca1de3672db83122c17ae&oe=599075D1' />
-        </div>
+        </label>
 
       </div>
     </header>
@@ -66,6 +67,11 @@
 
     </div>
     <label for='menu_checkbox' class='icon-cross'></label>
+
+    <div id='user_info'>
+
+    </div>
+    <label for='user_info_checkbox'></label>
 
   </body>
 </html>
