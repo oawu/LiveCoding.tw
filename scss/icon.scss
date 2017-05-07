@@ -6,8 +6,17 @@
   @include font-smoothing(antialiased);
 }
 
+.icon-notifications_active:before {
+  content: "\e905";
+}
 .icon-cross:before {
   content: "\e903";
+}
+.icon-switch:before {
+  content: "\e904";
+}
+.icon-power:before {
+  content: "\e904";
 }
 .icon-menu:before {
   content: "\e900";
