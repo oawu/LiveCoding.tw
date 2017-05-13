@@ -156,7 +156,6 @@ $logoWidth: 230px;
 #main {
   display: inline-block;
   width: 100%;
-  background-color: rgba(0, 0, 255, 0.2);
   padding-top: $headerHeight;
   padding-left: $logoWidth;
   @include transition(padding-left .3s);

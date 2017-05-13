@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="tw">
+  <head>
+    <meta http-equiv="Content-Language" content="zh-tw" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui" />
+
+    <title></title>
+
+    <link href="css/icon.css" rel="stylesheet" type="text/css" />
+    <link href="css/public.css" rel="stylesheet" type="text/css" />
+    <link href="css/calendar.css" rel="stylesheet" type="text/css" />
+
+    <script src="js/jquery_v1.10.2/jquery-1.10.2.min.js" language="javascript" type="text/javascript" ></script>
+    <script src="js/public.js" language="javascript" type="text/javascript" ></script>
+    <script src="js/calendar.js" language="javascript" type="text/javascript" ></script>
+
+  </head>
+  <body lang="zh-tw">
+    <input type='checkbox' id='menu_checkbox' class='hide_checkbox' />
+    <input type='checkbox' id='user_info_checkbox' class='hide_checkbox' />
+    
+    <header id='header'>
+      <div class='logo'>
+        <span class='icon-grin'></span>
+        <span>LiveCoding 標題</span>
+      </div>
+
+      <div class='center'>
+        <label class='icon-menu' for='menu_checkbox'></label>
+      </div>
+      
+      <div class='right'>
+        
+        <label class='avatar not' for='user_info_checkbox'>
+          <img src='https://scontent-tpe1-1.xx.fbcdn.net/v/t31.0-8/17388942_1664226550545538_8427538936397700484_o.png?oh=4baa848cf1aca1de3672db83122c17ae&oe=599075D1' />
+        </label>
+
+      </div>
+    </header>
+
+    <div id='main'>
+      <div>
+        <div class='calendar'>
+ 
+          <div class='top'>
+            <div class='title'>
+              2017年 5月
+            </div>
+            <div class='btns'>
+              <button>本月</button>
+              <button class='icon-keyboard_arrow_left'></button>
+              <button class='icon-keyboard_arrow_right'></button>
+            </div>
+          </div>
+
+          <div class='month'>
+            <div class='weeks'>
+              <div>日</div>
+              <div>一</div>
+              <div>二</div>
+              <div>三</div>
+              <div>四</div>
+              <div>五</div>
+              <div>六</div>
+            </div>
+
+            <div class='days'>
+              <div>1</div>
+              <div>2</div>
+              <div>3</div>
+              <div>4</div>
+              <div>5</div>
+              <div>6</div>
+              <div>7</div>
+            </div>
+            <div class='days'>
+              <div>1</div>
+              <div>2</div>
+              <div>3</div>
+              <div>4</div>
+              <div>5</div>
+              <div>6</div>
+              <div>7</div>
+            </div>
+            <div class='days'>
+              <div>1</div>
+              <div>2</div>
+              <div>3</div>
+              <div>4</div>
+              <div>5</div>
+              <div>6</div>
+              <div>7</div>
+            </div>
+            <div class='days'>
+              <div>1</div>
+              <div>2</div>
+              <div>3</div>
+              <div>4</div>
+              <div>5</div>
+              <div>6</div>
+              <div>7</div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+    <div id='menu'>
+
+      <div class='logo'>
+        <span class='icon-grin'></span>
+        <span>LiveCoding 標題</span>
+      </div>
+
+      <div class='group'>
+        <span class='icon-home'>選單 1</span>
+        <div class='sub'>
+          <a class='icon-images'>頁面 1-1</a>
+          <a class='icon-images active'>頁面 1-2</a>
+          <a class='icon-images'>頁面 1-3</a>
+        </div>
+      </div>
+      
+      <div class='group'>
+        <span class='icon-home'>選單 2</span>
+        <div class='sub'>
+          <a class='icon-images'>頁面 2-1</a>
+          <a class='icon-images'>頁面 2-2</a>
+        </div>
+      </div>
+
+    </div>
+    <label for='menu_checkbox' class='icon-cross'></label>
+
+    <div id='user_info'>
+      <div class='content'>
+        <div class='row'>Hi, <b>LiveCoding</b> 您好。</div>
+        <div class='row'>目前登入次數：<b>1,231</b>次</div>
+        <div class='row'>上次登入：<b>1 個月前</b></div>
+
+        <div class='item icon-notifications_active' data-count='1,234'>您有未讀訊息</div>
+        <div class='item icon-power'>登出</div>
+
+      </div>
+    </div>
+    <label for='user_info_checkbox'></label>
+
+  </body>
+</html>

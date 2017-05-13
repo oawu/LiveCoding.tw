@@ -4,94 +4,6 @@
     {
       "icon": {
         "paths": [
-          "M512 938c-48 0-86-38-86-84h170c0 49.675-37.225 84-84 84zM768 470v212l86 86v42h-684v-42l86-86v-212c0-132 70-240 192-270v-30c0-36 28-64 64-64s64 28 64 64v30c122 30 192 140 192 270zM852 448c-6-114-64-212-150-274l60-60c102 78 170 198 176 334h-86zM324 174c-88 62-146 160-152 274h-86c6-136 74-256 176-334z"
-        ],
-        "attrs": [
-          {}
-        ],
-        "isMulticolor": false,
-        "isMulticolor2": false,
-        "tags": [
-          "notifications_active"
-        ],
-        "grid": 24
-      },
-      "attrs": [
-        {}
-      ],
-      "properties": {
-        "order": 1,
-        "id": 0,
-        "prevSize": 24,
-        "code": 59653,
-        "name": "notifications_active"
-      },
-      "setIdx": 0,
-      "setId": 5,
-      "iconIdx": 0
-    },
-    {
-      "icon": {
-        "paths": [
-          "M810.667 170.667q18.333 0 30.5 12.167t12.167 30.5q0 18-12.333 30.333l-268.667 268.333 268.667 268.333q12.333 12.333 12.333 30.333 0 18.333-12.167 30.5t-30.5 12.167q-18 0-30.333-12.333l-268.333-268.667-268.333 268.667q-12.333 12.333-30.333 12.333-18.333 0-30.5-12.167t-12.167-30.5q0-18 12.333-30.333l268.667-268.333-268.667-268.333q-12.333-12.333-12.333-30.333 0-18.333 12.167-30.5t30.5-12.167q18 0 30.333 12.333l268.333 268.667 268.333-268.667q12.333-12.333 30.333-12.333z"
-        ],
-        "attrs": [
-          {}
-        ],
-        "isMulticolor": false,
-        "isMulticolor2": false,
-        "tags": [
-          "cross"
-        ],
-        "grid": 24
-      },
-      "attrs": [
-        {}
-      ],
-      "properties": {
-        "order": 1,
-        "id": 0,
-        "prevSize": 24,
-        "code": 59651,
-        "name": "cross"
-      },
-      "setIdx": 2,
-      "setId": 3,
-      "iconIdx": 0
-    },
-    {
-      "icon": {
-        "paths": [
-          "M496 993.984c-220.928 0-400-179.104-400-400 0-170.080 106.336-315.008 256-372.832v142.368c-76.768 48.096-128 133.184-128 230.464 0 150.208 121.792 272 272 272s272-121.792 272-272c0-83.072-37.312-157.28-96-207.2v-151.552c132.576 65.152 224 201.088 224 358.784 0 220.896-179.104 399.968-400 399.968zM512 545.984c-35.328 0-64-28.672-64-64v-355.968c0-35.328 28.672-64 64-64s64 28.672 64 64v356c0 35.328-28.672 63.968-64 63.968z"
-        ],
-        "attrs": [
-          {}
-        ],
-        "isMulticolor": false,
-        "isMulticolor2": false,
-        "tags": [
-          "switch",
-          "power"
-        ],
-        "grid": 32
-      },
-      "attrs": [
-        {}
-      ],
-      "properties": {
-        "order": 1,
-        "id": 0,
-        "name": "switch, power",
-        "prevSize": 32,
-        "code": 59652
-      },
-      "setIdx": 1,
-      "setId": 4,
-      "iconIdx": 0
-    },
-    {
-      "icon": {
-        "paths": [
           "M128 234.666h768q17.667 0 30.167 12.5t12.5 30.167-12.5 30.167-30.167 12.5h-768q-17.667 0-30.167-12.5t-12.5-30.167 12.5-30.167 30.167-12.5zM128 746.666h768q17.667 0 30.167 12.5t12.5 30.167-12.5 30.167-30.167 12.5h-768q-17.667 0-30.167-12.5t-12.5-30.167 12.5-30.167 30.167-12.5zM128 490.666h768q17.667 0 30.167 12.5t12.5 30.167-12.5 30.167-30.167 12.5h-768q-17.667 0-30.167-12.5t-12.5-30.167 12.5-30.167 30.167-12.5z"
         ],
         "isMulticolor": false,
@@ -104,14 +16,14 @@
       },
       "properties": {
         "id": 1,
-        "order": 6,
+        "order": 36,
         "ligatures": "",
         "prevSize": 32,
         "code": 59648,
         "name": "menu"
       },
-      "setIdx": 3,
-      "setId": 2,
+      "setIdx": 0,
+      "setId": 11,
       "iconIdx": 0
     },
     {
@@ -129,14 +41,14 @@
       },
       "properties": {
         "id": 2,
-        "order": 5,
+        "order": 37,
         "ligatures": "",
         "prevSize": 32,
         "code": 59649,
         "name": "home"
       },
-      "setIdx": 3,
-      "setId": 2,
+      "setIdx": 0,
+      "setId": 11,
       "iconIdx": 1
     },
     {
@@ -154,15 +66,91 @@
       },
       "properties": {
         "id": 3,
-        "order": 4,
+        "order": 38,
         "ligatures": "",
         "prevSize": 32,
         "code": 59650,
         "name": "keyboard_arrow_down"
       },
-      "setIdx": 3,
-      "setId": 2,
+      "setIdx": 0,
+      "setId": 11,
       "iconIdx": 2
+    },
+    {
+      "icon": {
+        "paths": [
+          "M810.667 192q18.333 0 30.5 12.167t12.167 30.5q0 18-12.333 30.333l-268.667 268.333 268.667 268.333q12.333 12.333 12.333 30.333 0 18.333-12.167 30.5t-30.5 12.167q-18 0-30.333-12.333l-268.333-268.667-268.333 268.667q-12.333 12.333-30.333 12.333-18.333 0-30.5-12.167t-12.167-30.5q0-18 12.333-30.333l268.667-268.333-268.667-268.333q-12.333-12.333-12.333-30.333 0-18.333 12.167-30.5t30.5-12.167q18 0 30.333 12.333l268.333 268.667 268.333-268.667q12.333-12.333 30.333-12.333z"
+        ],
+        "isMulticolor": false,
+        "isMulticolor2": false,
+        "tags": [
+          "cross"
+        ],
+        "defaultCode": 59651,
+        "grid": 0
+      },
+      "properties": {
+        "id": 4,
+        "order": 39,
+        "ligatures": "",
+        "prevSize": 32,
+        "code": 59651,
+        "name": "cross"
+      },
+      "setIdx": 0,
+      "setId": 11,
+      "iconIdx": 3
+    },
+    {
+      "icon": {
+        "paths": [
+          "M496 993.984c-220.928 0-400-179.104-400-400 0-170.080 106.336-315.008 256-372.832v142.368c-76.768 48.096-128 133.184-128 230.464 0 150.208 121.792 272 272 272s272-121.792 272-272c0-83.072-37.312-157.28-96-207.2v-151.552c132.576 65.152 224 201.088 224 358.784 0 220.896-179.104 399.968-400 399.968zM512 545.984c-35.328 0-64-28.672-64-64v-355.968c0-35.328 28.672-64 64-64s64 28.672 64 64v356c0 35.328-28.672 63.968-64 63.968z"
+        ],
+        "isMulticolor": false,
+        "isMulticolor2": false,
+        "tags": [
+          "switch",
+          "power"
+        ],
+        "defaultCode": 59652,
+        "grid": 0
+      },
+      "properties": {
+        "id": 5,
+        "order": 40,
+        "ligatures": "",
+        "prevSize": 32,
+        "code": 59652,
+        "name": "switch"
+      },
+      "setIdx": 0,
+      "setId": 11,
+      "iconIdx": 4
+    },
+    {
+      "icon": {
+        "paths": [
+          "M512 959.333c-48 0-86-38-86-84h170c0 49.675-37.225 84-84 84zM768 491.333v212l86 86v42h-684v-42l86-86v-212c0-132 70-240 192-270v-30c0-36 28-64 64-64s64 28 64 64v30c122 30 192 140 192 270zM852 469.333c-6-114-64-212-150-274l60-60c102 78 170 198 176 334h-86zM324 195.333c-88 62-146 160-152 274h-86c6-136 74-256 176-334z"
+        ],
+        "isMulticolor": false,
+        "isMulticolor2": false,
+        "tags": [
+          "notifications_active"
+        ],
+        "defaultCode": 59653,
+        "grid": 0
+      },
+      "properties": {
+        "id": 6,
+        "order": 41,
+        "ligatures": "",
+        "prevSize": 32,
+        "code": 59653,
+        "name": "notifications_active"
+      },
+      "setIdx": 0,
+      "setId": 11,
+      "iconIdx": 5
     },
     {
       "icon": {
@@ -179,16 +167,16 @@
         "grid": 0
       },
       "properties": {
-        "id": 4,
-        "order": 3,
+        "id": 7,
+        "order": 42,
         "ligatures": "",
         "prevSize": 32,
         "code": 59662,
         "name": "images"
       },
-      "setIdx": 3,
-      "setId": 2,
-      "iconIdx": 3
+      "setIdx": 0,
+      "setId": 11,
+      "iconIdx": 6
     },
     {
       "icon": {
@@ -204,16 +192,70 @@
         "grid": 0
       },
       "properties": {
-        "id": 5,
-        "order": 2,
+        "id": 8,
+        "order": 35,
         "ligatures": "",
         "prevSize": 32,
         "code": 59881,
         "name": "grin"
       },
-      "setIdx": 3,
-      "setId": 2,
-      "iconIdx": 4
+      "setIdx": 0,
+      "setId": 11,
+      "iconIdx": 7
+    },
+    {
+      "icon": {
+        "paths": [
+          "M658 707.333l-60 60-256-256 256-256 60 60-196 196z"
+        ],
+        "isMulticolor": false,
+        "isMulticolor2": false,
+        "tags": [
+          "keyboard_arrow_left"
+        ],
+        "defaultCode": 58132,
+        "grid": 0,
+        "attrs": []
+      },
+      "attrs": [],
+      "properties": {
+        "id": 1,
+        "order": 43,
+        "ligatures": "",
+        "prevSize": 32,
+        "code": 58132,
+        "name": "keyboard_arrow_left"
+      },
+      "setIdx": 2,
+      "setId": 9,
+      "iconIdx": 0
+    },
+    {
+      "icon": {
+        "paths": [
+          "M366 719.333l196-196-196-196 60-60 256 256-256 256z"
+        ],
+        "isMulticolor": false,
+        "isMulticolor2": false,
+        "tags": [
+          "keyboard_arrow_right"
+        ],
+        "defaultCode": 58133,
+        "grid": 0,
+        "attrs": []
+      },
+      "attrs": [],
+      "properties": {
+        "id": 2,
+        "order": 44,
+        "ligatures": "",
+        "prevSize": 32,
+        "code": 58133,
+        "name": "keyboard_arrow_right"
+      },
+      "setIdx": 2,
+      "setId": 9,
+      "iconIdx": 1
     }
   ],
   "height": 1024,
@@ -245,7 +287,7 @@
       "bgColor": 16777215,
       "classSelector": ".icon"
     },
-    "historySize": 50,
+    "historySize": 100,
     "showCodes": true,
     "gridSize": 16
   }

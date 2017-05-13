@@ -6,18 +6,6 @@
   @include font-smoothing(antialiased);
 }
 
-.icon-notifications_active:before {
-  content: "\e905";
-}
-.icon-cross:before {
-  content: "\e903";
-}
-.icon-switch:before {
-  content: "\e904";
-}
-.icon-power:before {
-  content: "\e904";
-}
 .icon-menu:before {
   content: "\e900";
 }
@@ -27,9 +15,24 @@
 .icon-keyboard_arrow_down:before {
   content: "\e902";
 }
+.icon-cross:before {
+  content: "\e903";
+}
+.icon-switch:before {
+  content: "\e904";
+}
+.icon-notifications_active:before {
+  content: "\e905";
+}
 .icon-images:before {
   content: "\e90e";
 }
 .icon-grin:before {
   content: "\e9e9";
+}
+.icon-keyboard_arrow_left:before {
+  content: "\e314";
+}
+.icon-keyboard_arrow_right:before {
+  content: "\e315";
 }
