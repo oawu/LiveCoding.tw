@@ -4,14 +4,14 @@
  */
 
 $(function () {
+  var _weeks = ['日', '一', '二', '三', '四', '五', '六'];
   // 1 產生出 二維 陣列
   // 2 二維陣列 是月份內的每天 資訊(日期)
+
   // 3 產生出 html 元素，加到 month
   function monthDayCount (y, m) {
     return (--m == 1) ? ((y % 4) === 0) && ((y % 100) !== 0) || ((y % 400) === 0) ? 29 : 28 : [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31][m];
   }
-
-
   function prevMonth (y, m) {
     return { y: m == 1 ? y - 1 : y, m: m == 1 ? 12 : (m - 1) };
   }
@@ -30,16 +30,7 @@ $(function () {
     var prevMonthCount = monthDayCount (p.y, p.m);
     var n = nextMonth (y, m);
 
- //                   7
-          //  j  0   1   2 3 4 5 6
-                // 日
- //           0   0, 1, 2, 3, 4, 5, 6
- //           1   7, 8, 9,10,11,12,13
- // weekCount 2  14,15,16,17,18,19,20
- //           3  21,22,23,4,5,6,7
- //           4  1,2,3,4,5,6,7
-    
-    var t = Array.apply (null, Array (weekCount)).map (function (_, i) {
+    return Array.apply (null, Array (weekCount)).map (function (_, i) {
       return Array.apply (null, Array (7)).map (function (_, j) {
         var d = i * 7 + j - firstDayWeek + 1;
         var m2 = m;
@@ -64,12 +55,27 @@ $(function () {
         };
       });
     });
-   
-  console.error (t);
-
   }
 
-  createMonthArr (2017, 12);
+  function renderMonth (y, m) {
+    var monthArr = createMonthArr (y, m);
+
+    var w = $('<div />').addClass ('weeks').append (
+      _weeks.map (function (t) {
+        return $('<div />').text (t);
+      }));
+
+    var ds = monthArr.map (function (w) {
+      return $('<div />').addClass ('days').append (
+        w.map (function (d) {
+          return $('<div />').text ('1');
+        }));
+    });
+
+    $('.month').empty ().append (w).append (ds);
+  }
+  renderMonth (2017, 4);
+
   
 
 });
