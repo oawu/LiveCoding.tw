@@ -61,6 +61,9 @@ $(function () {
     });
   }
 
+  var $month = $('.month');
+  var $title = $('.calendar .top .title');
+
   function renderMonth (y, m) {
     var monthArr = createMonthArr (y, m);
 
@@ -79,27 +82,25 @@ $(function () {
         }));
     });
 
-    $('.month').empty ().append (w).append (ds);
-    $('.calendar .top .title').attr ('data-y', y).attr ('data-m', m);
+    $month.empty ().append (w).append (ds);
+    $title.attr ('data-y', y).attr ('data-m', m);
   }
 
-  var date = new Date ();
-  
-  renderMonth (date.getFullYear (), date.getMonth () + 1);
+  $('.top .btns .today').click (function () {
+    var date = new Date ();
+    renderMonth (date.getFullYear (), date.getMonth () + 1);
+  }).click ();
 
   $('.top .btns .prev').click (function () {
-    var y = parseInt ($('.calendar .top .title').attr ('data-y'), 10);
-    var m = parseInt ($('.calendar .top .title').attr ('data-m'), 10);
-    
+    var y = parseInt ($title.attr ('data-y'), 10);
+    var m = parseInt ($title.attr ('data-m'), 10);
     var p = prevMonth (y, m);
-
     renderMonth (p.y, p.m);
   });
   $('.top .btns .next').click (function () {
-    var y = parseInt ($('.calendar .top .title').attr ('data-y'), 10);
-    var m = parseInt ($('.calendar .top .title').attr ('data-m'), 10);
+    var y = parseInt ($title.attr ('data-y'), 10);
+    var m = parseInt ($title.attr ('data-m'), 10);
     var n = nextMonth (y, m);
     renderMonth (n.y, n.m);
   });
-
 });
