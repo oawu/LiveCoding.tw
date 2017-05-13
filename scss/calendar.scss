@@ -95,6 +95,14 @@
           background-image: -webkit-gradient(linear, 0 0, 100% 100%, color-stop(.25, rgba(225, 225, 225, 1.00)), color-stop(.25, transparent),color-stop(.5, transparent), color-stop(.5, rgba(225, 225, 225, 1.00)),color-stop(.75, rgba(225, 225, 225, 1.00)), color-stop(.75, transparent),to(transparent));
           -webkit-background-size: 20px 20px;
         }
+        &.today {
+          border: 3px solid rgba(80, 142, 245, 1.00);
+        }
+        @include transition(background-color .3s);
+        
+        &:hover {
+          background-color: rgba(0, 0, 0, .050);
+        }
       }
     }
   }

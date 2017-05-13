@@ -30,6 +30,8 @@ $(function () {
     var prevMonthCount = monthDayCount (p.y, p.m);
     var n = nextMonth (y, m);
 
+    var date = new Date ();
+
     return Array.apply (null, Array (weekCount)).map (function (_, i) {
       return Array.apply (null, Array (7)).map (function (_, j) {
         var d = i * 7 + j - firstDayWeek + 1;
@@ -50,12 +52,15 @@ $(function () {
           y2 = p.y;
           l = false;
         }
+        var t = y2 == date.getFullYear () && m2 == date.getMonth () + 1 && d == date.getDate ();
+
 
         return {
           y: y2,
           m: m2,
           d: d,
-          l: l
+          l: l,
+          t: t
         };
       });
     });
@@ -76,6 +81,7 @@ $(function () {
       return $('<div />').addClass ('days').append (
         w.map (function (d) {
           return $('<div />').addClass (d.l ? null : 'next-prev-month')
+                             .addClass (d.t ? 'today' : null)
                              .attr ('data-y', d.y)
                              .attr ('data-m', d.m)
                              .attr ('data-d', d.d);
