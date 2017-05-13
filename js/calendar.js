@@ -35,23 +35,27 @@ $(function () {
         var d = i * 7 + j - firstDayWeek + 1;
         var m2 = m;
         var y2 = y;
+        var l = true; // 是否為本月份
 
         if (d > monthCount) {
           d = d - monthCount;
           m2 = n.m;
           y2 = n.y;
+          l = false;
         }
 
         if (d <= 0) {
           d = d + prevMonthCount;
           m2 = p.m;
           y2 = p.y;
+          l = false;
         }
 
         return {
           y: y2,
           m: m2,
-          d: d
+          d: d,
+          l: l
         };
       });
     });
@@ -68,7 +72,8 @@ $(function () {
     var ds = monthArr.map (function (w) {
       return $('<div />').addClass ('days').append (
         w.map (function (d) {
-          return $('<div />').attr ('data-y', d.y)
+          return $('<div />').addClass (d.l ? null : 'next-prev-month')
+                             .attr ('data-y', d.y)
                              .attr ('data-m', d.m)
                              .attr ('data-d', d.d);
         }));
