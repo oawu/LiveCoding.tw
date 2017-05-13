@@ -36,16 +36,16 @@ $(function () {
         var m2 = m;
         var y2 = y;
 
-        if (d <= 0) {
-          d = d + prevMonthCount;
-          m2 = p.m;
-          y2 = p.y;
-        }
-
         if (d > monthCount) {
           d = d - monthCount;
           m2 = n.m;
           y2 = n.y;
+        }
+
+        if (d <= 0) {
+          d = d + prevMonthCount;
+          m2 = p.m;
+          y2 = p.y;
         }
 
         return {
@@ -68,14 +68,15 @@ $(function () {
     var ds = monthArr.map (function (w) {
       return $('<div />').addClass ('days').append (
         w.map (function (d) {
-          return $('<div />').text ('1');
+          return $('<div />').attr ('data-y', d.y)
+                             .attr ('data-m', d.m)
+                             .attr ('data-d', d.d);
         }));
     });
 
     $('.month').empty ().append (w).append (ds);
   }
-  renderMonth (2017, 4);
 
-  
+  renderMonth (2017, 4);
 
 });
