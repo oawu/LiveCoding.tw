@@ -26,6 +26,11 @@
     }
     .title {
       width: calc(100% - 200px);
+
+      &:after {
+        content: attr(data-y) '年 ' attr(data-m) '月';
+
+      }
     }
     .btns {
       width: 200px;

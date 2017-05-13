@@ -80,8 +80,26 @@ $(function () {
     });
 
     $('.month').empty ().append (w).append (ds);
+    $('.calendar .top .title').attr ('data-y', y).attr ('data-m', m);
   }
 
-  renderMonth (2017, 4);
+  var date = new Date ();
+  
+  renderMonth (date.getFullYear (), date.getMonth () + 1);
+
+  $('.top .btns .prev').click (function () {
+    var y = parseInt ($('.calendar .top .title').attr ('data-y'), 10);
+    var m = parseInt ($('.calendar .top .title').attr ('data-m'), 10);
+    
+    var p = prevMonth (y, m);
+
+    renderMonth (p.y, p.m);
+  });
+  $('.top .btns .next').click (function () {
+    var y = parseInt ($('.calendar .top .title').attr ('data-y'), 10);
+    var m = parseInt ($('.calendar .top .title').attr ('data-m'), 10);
+    var n = nextMonth (y, m);
+    renderMonth (n.y, n.m);
+  });
 
 });
