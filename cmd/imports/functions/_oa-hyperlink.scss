@@ -1,19 +1,24 @@
 /**
  * @author      OA Wu <comdan66@gmail.com>
- * @copyright   Copyright (c) 2016 OA Wu Design
+ * @copyright   Copyright (c) 2017 OA Wu Design
+ * @license     http://creativecommons.org/licenses/by-nc/2.0/tw/
  */
 
-@mixin a($underLineHeight: 0, $d4UnderLine: false, $color: rgba(42, 90, 149, 0.7), $hoverColor: rgba(12, 65, 109, .85)) {
-  display: inline-block;
-
-  color: $color;
+// <a></a>
+@mixin a($underLineHeight: 0, $d4UnderLine: false, $color: rgba(66, 133, 244, 1.00), $hoverColor: null) {
+  display: inline;
   font-weight: normal;
   text-decoration: none;
-  padding: 0 2px;
-  padding-bottom: $underLineHeight;
-  @include transition(all .3s);
+  @if $hoverColor {
+  } @else {
+    $hoverColor: adjust-lightness($color, -15%);
+  }
 
-  @if($underLineHeight > 0) {
+  @include transition(color .3s, border-bottom .3s);
+
+  color: $color;
+
+  @if $underLineHeight > 0 {
     @if($d4UnderLine) {
       border-bottom: $underLineHeight solid $color;
     }

@@ -1,6 +1,7 @@
 /**
  * @author      OA Wu <comdan66@gmail.com>
- * @copyright   Copyright (c) 2016 OA Wu Design
+ * @copyright   Copyright (c) 2017 OA Wu Design
+ * @license     http://creativecommons.org/licenses/by-nc/2.0/tw/
  */
 
 @import "_oa";
@@ -19,15 +20,20 @@ html {
 
   body {
     position: relative;
+
     display: inline-block;
-    text-align: center;
-    margin: 0;
     width: 100%;
     min-height: 100%;
+    margin: 0;
+    padding: 0;
+
+    color: rgba(90, 90, 90, 1.00);
+    text-align: center;
     font-size: medium;
-    font-family: Roboto,RobotoDraft,Helvetica,Arial,sans-serif,"微軟正黑體", "Microsoft JhengHei";
-    background: white;
-    color: rgba(50, 50, 50, 0.8);
+    font-family: Roboto, RobotoDraft, Helvetica, Arial, sans-serif, "微軟正黑體", "Microsoft JhengHei";
+
+    background: $mainBackgroundColor;
+    background-image: $mainBackgroundImage;
 
     @include font-smoothing(antialiased);
   }
