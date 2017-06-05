@@ -1,7 +1,0 @@
-.DS_Store
-sftp-config*
-
-cmd/.sass-cache/*
-
-cmd/node_modules/*
-cmd/npm-debug.log
