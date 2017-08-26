@@ -3,78 +3,40 @@
 /**
  * @author      OA Wu <comdan66@gmail.com>
  * @copyright   Copyright (c) 2017 OA Wu Design
- *
- * Need to run init.php
- *
+ * @license     http://creativecommons.org/licenses/by-nc/2.0/tw/
  */
 
-define ('PHP', '.php');
-define ('PATH', implode (DIRECTORY_SEPARATOR, explode (DIRECTORY_SEPARATOR, dirname (str_replace (pathinfo (__FILE__, PATHINFO_BASENAME), '', __FILE__)))) . '/');
-define ('PATH_CMD', PATH . 'cmd' . DIRECTORY_SEPARATOR);
-define ('PATH_CMD_LIBS', PATH_CMD . 'libs' . DIRECTORY_SEPARATOR);
-
-include_once PATH_CMD_LIBS . 'defines' . PHP;
-include_once PATH_CMD_LIBS . 'Step' . PHP;
-include_once PATH_CMD_LIBS . 'Minify' . DIRECTORY_SEPARATOR . 'Min' . PHP;
-
-Step::start ();
+include_once 'libs' . DIRECTORY_SEPARATOR . 'Define.php';
+include_once 'libs' . DIRECTORY_SEPARATOR . 'Func' . PHP;
+include_once 'libs' . DIRECTORY_SEPARATOR . 'Logger' . PHP;
 
 $file = array_shift ($argv);
-$argv = Step::params ($argv, array (array ('-b', '-bucket'), array ('-a', '-access'), array ('-s', '-secret'), array ('-u', '-upload'), array ('-m', '-minify'), array ('-n', '-usname')));
-if (!(isset ($argv['-b'][0]) && ($bucket = trim ($argv['-b'][0], '/')) && isset ($argv['-a'][0]) && ($access = $argv['-a'][0]) && isset ($argv['-s'][0]) && ($secret = $argv['-s'][0]))) {
-  echo str_repeat ('=', 80) . "\n";
-  echo ' ' . Step::color ('◎', 'R') . ' ' . Step::color ('錯誤囉！', 'r') . Step::color ('請確認參數是否正確，分別需要', 'p') . ' ' . Step::color ('-b', 'W') . '、' . Step::color ('-a', 'W') . '、' . Step::color ('-s', 'W') . Step::color (' 的參數！', 'p') . ' ' . Step::color ('◎', 'R');
-  echo "\n" . str_repeat ('=', 80) . "\n\n";
+
+$argv = params ($argv, array (
+  array ('-b', '-bucket'),
+  array ('-a', '-access'),
+  array ('-s', '-secret'),
+  array ('-u', '-upload'),
+  array ('-m', '-minify'),
+  array ('-n', '-usname'),
+  array ('-p', '-protocol')));
+
+$log = new Logger ();
+if (!(isset ($argv['-b'][0]) && ($bucket = trim ($argv['-b'][0], '/')) && isset ($argv['-a'][0]) && ($access = trim ($argv['-a'][0])) && isset ($argv['-s'][0]) && ($secret = trim ($argv['-s'][0])))) {
+  $log->append ("\n", str_repeat ('=', 80), "\n\n",
+      ' ' . color ('◎', 'R') . ' ' . color ('錯誤囉！', 'r') . color ('請確認參數是否正確，分別需要', 'p') . ' ' . color ('-b', 'W') . '、' . color ('-a', 'W') . '、' . color ('-s', 'W') . color (' 的參數！', 'p') . ' ' . color ('◎', 'R'),
+      "\n\n" . str_repeat ('=', 80) . "\n\n"
+    );
   exit ();
 }
 
-define ('BUCKET', $bucket);
-define ('ACCESS', $access);
-define ('SECRET', $secret);
+$option = array (
+    'bucket' => $bucket,
+    'access' => $access,
+    'secret' => $secret,
+    'protocol' => isset ($argv['-p'][0]) && ($argv['-p'][0] = strtolower (trim ($argv['-p'][0]))) && in_array ($argv['-p'][0], array ('https', 'http')) ? $argv['-p'][0] : 'https',
+    'usname' => !isset ($argv['-n'][0]) ? true : (is_numeric ($argv['-n'][0] = trim ($argv['-n'][0])) && $argv['-n'][0]),
+    'minify' => !isset ($argv['-m'][0]) ? true : (is_numeric ($argv['-m'][0] = trim ($argv['-m'][0])) && $argv['-m'][0]),
+  );
 
-define ('UPLOAD', isset ($argv['-u'][0]) && is_numeric ($tmp = $argv['-u'][0]) ? $tmp ? true : false : true);
-define ('MINIFY', isset ($argv['-m'][0]) && is_numeric ($tmp = $argv['-m'][0]) ? $tmp ? true : false : true);
-define ('USNAME', isset ($argv['-n'][0]) && is_numeric ($tmp = $argv['-n'][0]) ? $tmp ? true : false : true);
-
-// 開始執行
-Step::init ();
-
-// ---------------
-if (!UPLOAD) {
-  Step::usage ();
-  Step::end ();
-  Step::showUrl ();
-  echo "\n";
-  exit ();
-}
-// ---------------
-
-// 設定好要上傳的資料夾位置 與 檔案類型
-Step::setUploadDirs (array (
-    'js' => array ('js'),
-    'css' => array ('css'),
-    'font' => array ('eot', 'svg', 'ttf', 'woff'),
-    'img' => array ('png', 'jpg', 'jpeg', 'gif', 'svg'),
-    '' => array ('html', 'txt')
-  ));
-
-
-// ---------------
-include_once PATH_CMD_LIBS . 'S3' . PHP;
-
-Step::initS3 (ACCESS, SECRET);
-Step::listLocalFiles ();
-Step::listS3Files ();
-// ---------------
-
-$files = Step::filterLocalFiles ();
-Step::uploadLocalFiles ($files);
-$files = Step::filterS3Files ();
-Step::deletwS3Files ($files);
-// ---------------
-
-Step::usage ();
-Step::end ();
-Step::showUrl ();
-echo "\n";
-exit ();
+include_once '_oa' . PHP;

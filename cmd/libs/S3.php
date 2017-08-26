@@ -24,6 +24,11 @@ class S3 {
     self::$__secret_key = $secret_key;
     return true;
   }
+  public static function test () {
+    $rest = new S3Request ('GET', '', '');
+    $rest = $rest->getResponse ();
+    return !(($rest->error !== false) || ($rest->code !== 200));
+  }
 
   public static function listBuckets ($detailed = false) {
     $rest = new S3Request ('GET', '', '');

@@ -8,11 +8,13 @@
 //   <input type='radio'>
 //   <span></span>
 // </label>
-@mixin radio($color: rgba(69, 139, 244, 1.00), $d: 20px, $s: 5px){
+@mixin radio($color: rgba(69, 139, 244, 1.00), $d: 20px, $s: 6px){
   position: relative;
   display: inline-block;
   height: $d;
+  line-height: $d;
   min-width: $d;
+  padding-left: $d + 4px;
   cursor: pointer;
   $x: '_radio_r_'+random(1000);
 
@@ -49,6 +51,8 @@
       height: calc(100% - #{$s * 2});
       background-color: white;
       @include border-radius(50%);
+      @include scale(0);
+      @include transition(transform .3s);
     }
   }
   input:checked {
@@ -57,6 +61,7 @@
       @include box-shadow(inset 1px 1px 1px rgba(0, 0, 0, .200));
       &:after {
         @include box-shadow(1px 1px 1px rgba(0, 0, 0, .200));
+      @include scale(1);
       }
     }
   }

@@ -7,6 +7,9 @@ git add -A && git commit -m 'Fix html code.' && git push origin master
 
 ◎ Put S3 Command
 =======================
+➜ GUI
+git add -A && git commit -m 'Fix code.' && git push origin master && cd cmd && php demo.php && cd .. && git checkout .
+
 ➜ Don't minify
 git add -A && git commit -m 'Fix code.' && git push origin master && cd cmd && php put.php -b {bucket} -a {access} -s {secret} -m 0 && cd .. && git checkout .
 
