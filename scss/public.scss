@@ -32,9 +32,397 @@ html {
     font-size: medium;
     font-family: Roboto, RobotoDraft, Helvetica, Arial, sans-serif, "微軟正黑體", "Microsoft JhengHei";
 
-    background: $mainBackgroundColor;
-    background-image: $mainBackgroundImage;
-
+    background-color: rgba(45, 54, 73, 1.00);
     @include font-smoothing(antialiased);
+  }
+}
+
+#line {
+  display: inline-block;
+  width: 740px;
+  height: 430px;
+  background-color: white;
+  margin: 0 32px;
+  margin-top: 32px;
+  overflow: hidden;
+  @include border-radius(4px);
+  @include box-shadow(0 3px 8px 1px rgba(0, 0, 0, .2), 0 0 1px rgba(0, 0, 0, .3));
+  @include clearfix();
+}
+
+#header {
+  display: inline-block;
+  width: 100%;
+  height: 25px;
+  line-height: 25px;
+  border-bottom: 1px solid rgba(218, 222, 225, 1.00);
+  background-color: rgba(238, 242, 245, 1.00);
+}
+
+#menu, #room {
+  float: left;
+  display: inline-block;
+  width: 50%;
+  height: calc(100% - 25px);
+}
+$searchHeight: 45px;
+
+#menu .search, #room .title {
+  display: block;
+  height: $searchHeight;
+  line-height: $searchHeight;
+  background-color: rgba(239, 242, 245, 1.00);
+  border-bottom: 1px solid rgba(228, 231, 237, 1.00);
+  @include clearfix();
+}
+#menu {
+  border-right: 1px solid rgba(228, 231, 237, 1.00);
+
+  .search {
+    
+    > * {
+      float: left;
+      display: inline-block;
+    }
+
+    .input {
+      position: relative;
+      width: calc(100% - #{$searchHeight} - 8px);
+      padding: 8px 0;
+      height: ($searchHeight - 8px * 2);
+      margin-left: 8px;
+      
+      $sw: 30px;
+      .icon-search {
+        position: absolute;
+        left: 0;
+        top: 8px;
+        display: inline-block;
+        width: $sw;
+        height: ($searchHeight - 8px * 2);
+        line-height: ($searchHeight - 8px * 2);
+      }
+      input[name='keyword'] {
+        @include input;
+        width: 100%;
+        padding-left: $sw;
+      }
+    }
+    .icon-menu3 {
+      width: $searchHeight;
+      height: $searchHeight;
+      text-align: center;
+      font-size: 18px;
+      color: rgba(153, 159, 173, 1.00);
+    }
+  }
+
+  .items {
+    display: block;
+    height: calc(100% - #{$searchHeight});
+    text-align: left;
+    cursor: pointer;
+
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+
+    &::-webkit-scrollbar-thumb {
+      background-color: rgba(175, 175, 175, 1.00);
+      @include border-radius(4px);  
+    }
+    &::-webkit-scrollbar {
+      background-color: transparent;
+      width: 8px;
+    }
+    
+    .item {
+      position: relative;
+      display: block;
+      height: 75px;
+      background-color: rgba(255, 255, 255, 1.00);
+      @include clearfix();
+      @include transition(background-color .3s);
+      
+      > * {
+        float: left;
+        display: inline-block;
+      }
+      > figure {
+        margin: 0;
+        width: 50px;
+        height: 50px;
+        margin-top: (75px - 50px) / 2;
+        margin-left: 8px;
+        margin-right: 8px;
+        overflow: hidden;
+        @include border-radius(50%);
+        
+        > img {
+          width: 100%;
+        }
+      }
+      .icon-pin {
+        position: absolute;
+        left: 42px;
+        top: 43px;
+        background-color: rgba(81, 129, 226, 1.00);
+        color: white;
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        line-height: 20px;
+        text-align: center;
+        font-size: 13px;
+        @include border-radius(50%);
+      }
+      > div, > span {
+        width: calc(100% - 50px - 8px - 8px);
+      }
+      > div {
+        margin-top: 16px;
+        @include clearfix();
+        
+        > * {
+          float: left;
+          display: inline-block;
+          height: 30px;
+          line-height: 30px;
+        }
+        b {
+          width: calc(100% - 80px);
+          color: rgba(49, 58, 83, 1.00);
+          font-weight: normal;
+          @include overflow-docx3();
+        }
+        time {
+          width: 80px;
+          text-align: right;
+          padding-right: 8px;
+          font-size: 13px;
+          color: rgba(168, 171, 180, 1.00);
+        }
+      }
+      > span {
+        margin-top: -6px;
+        color: rgba(114, 124, 146, 1.00);
+        font-size: 13px;
+      }
+      &:hover {
+        background-color: rgba(240, 240, 240, 1.00);
+      }
+      &.active {
+        background-color: rgba(237, 239, 242, 1.00);
+      }
+    }
+  }
+}
+#room {
+  .title {
+    > * {
+      float: left;
+      display: inline-block;
+      height: $searchHeight - 1px;
+      line-height: $searchHeight - 1px;
+    }
+    span {
+      width: calc(100% - #{30px * 2});
+      text-align: left;
+      padding-left: 8px;
+      color: rgba(84, 90, 87, 1.00);
+
+      &:after {
+        content: "\e902";
+        font-family: "icomoon"; speak: none; font-style: normal; font-weight: normal; font-variant: normal;
+        margin-left: 3px;
+        color: rgba(132, 138, 153, 1.00);
+        font-size: 13px;
+      }
+    }
+    a {
+      width: 30px;
+      color: rgba(135, 141, 156, 1.00);
+      cursor: pointer;
+      background-color: rgba(239, 242, 245, 1.00);
+      @include transition(background-color .3s);
+      
+
+      &:hover {
+        background-color: adjust-lightness(rgba(239, 242, 245, 1.00), -5%);
+      }
+    }
+  }
+  .messages {
+    display: block;
+    height: calc(100% - 120px - #{$searchHeight});
+
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+
+    &::-webkit-scrollbar-thumb {
+      background-color: rgba(175, 175, 175, 1.00);
+      @include border-radius(4px);  
+    }
+    &::-webkit-scrollbar {
+      background-color: transparent;
+      width: 8px;
+    }
+    .message {
+      display: block;
+      padding: 24px 0;
+
+      @include clearfix();
+
+      > * {
+        float: left;
+        display: inline-block;
+      }
+      figure {
+        position: relative;
+        z-index: 2;
+        margin: 0;
+        width: 30px;
+        height: 30px;
+        margin-left: 8px;
+        margin-right: 12px;
+        overflow: hidden;
+        @include border-radius(50%);
+        img {
+          width: 100%;
+        }
+      }
+      > div {
+        position: relative;
+        max-width: calc(100% - 68px - 30px - 8px - 12px);
+        text-align: left;
+        font-size: 13px;
+        color: rgba(55, 55, 55, 1.00);
+        z-index: 1;
+        
+        &:before, &:after {
+          content: '';
+          position: absolute;
+          left: -10px;
+          top: 0;
+
+          display: inline-block;
+          width: 10px;
+          height: 10px;
+          background-color: rgba(0, 0, 255, 0.2);
+          @include border-radius(50%);
+          z-index: -1;
+        }
+        &:before {
+          width: 38px;
+          height: 50px;
+          top: (-24px - 8px);
+          left: -12px;
+          background-color: rgba(228, 232, 235, 1.00);;
+        }
+        &:after {
+          width: 55px;
+          height: 50px;
+          top: (-34px - 8px);
+          left: -22px;
+          background-color: white;
+        }
+        span {
+          position: relative;
+          z-index: 2;
+          display: inline-block;
+          width: 100%;
+          padding: 4px 8px;
+          background-color: rgba(228, 232, 235, 1.00);
+          @include border-radius(12px);
+        }
+      }
+      time {
+        width: 68px;
+        text-align: right;
+        color: rgba(125, 150, 152, 1.00);
+        font-size: 10px;
+        padding-right: 8px;
+      }
+      &.me {
+        > * {
+          float: right;
+        }
+        figure {
+          margin-left: 12px;
+          margin-right: 8px;
+        }
+        > div {
+          > span {
+            background-color: rgba(190, 241, 140, 1.00);
+          }
+
+          &:before, &:after {
+            left: auto;
+            right: -10px;
+          }
+          &:before {
+            right: -12px;
+            background-color: rgba(190, 241, 140, 1.00);
+          }
+          &:after {
+            right: -22px;
+          }
+
+        }
+        time {
+          text-align: left;
+          padding-right: 0;
+          padding-left: 8px;
+        }
+      }
+      
+      + .message {
+        margin-top: 26px;
+      }
+    }
+  }
+  .inputs {
+    display: block;
+    height: 120px;
+
+    .icons {
+      display: block;
+      height: 32px;
+      background-color: rgba(246, 246, 246, 1.00);
+      border-top: 3px double rgba(232, 232, 232, 1.00);
+      border-bottom: 1px solid rgba(222, 222, 222, 1.00);
+      @include clearfix();
+      
+      > * {
+        float: left;
+        width: 32px;
+        height: 32px - 1px - 3px;
+        line-height: 32px - 1px - 3px;
+        color: rgba(136, 148, 165, 1.00);
+        cursor: pointer;
+
+        &.icon-phone, &.icon-video-camera {
+          float: right;
+        }
+        @include transition(background-color .3s);
+      
+        &:hover {
+          background-color: adjust-lightness(rgba(239, 242, 245, 1.00), -5%);
+        }
+      }
+    }
+    .textarea {
+      @include textarea;
+      border: 0;
+      font-size: 14px;
+      width: 100%;
+      height: calc(100% - 32px);
+      padding: 8px;
+
+      &:focus {
+        outline: 0;
+        border: 0;
+        @include box-shadow(none);
+      }
+    }
   }
 }
