@@ -1,6 +1,91 @@
 {
   "IcoMoonType": "selection",
-  "icons": [],
+  "icons": [
+    {
+      "icon": {
+        "paths": [
+          "M512 0c-176.732 0-320 143.268-320 320 0 320 320 704 320 704s320-384 320-704c0-176.732-143.27-320-320-320zM512 512c-106.040 0-192-85.96-192-192s85.96-192 192-192 192 85.96 192 192-85.96 192-192 192z"
+        ],
+        "tags": [
+          "location",
+          "map-marker",
+          "pin"
+        ],
+        "defaultCode": 59719,
+        "grid": 16,
+        "attrs": []
+      },
+      "attrs": [],
+      "properties": {
+        "ligatures": "location, map-marker",
+        "name": "location",
+        "order": 3,
+        "id": 72,
+        "prevSize": 32,
+        "code": 59719
+      },
+      "setIdx": 0,
+      "setId": 1,
+      "iconIdx": 71
+    },
+    {
+      "icon": {
+        "paths": [
+          "M1024 397.050l-353.78-51.408-158.22-320.582-158.216 320.582-353.784 51.408 256 249.538-60.432 352.352 316.432-166.358 316.432 166.358-60.434-352.352 256.002-249.538z"
+        ],
+        "tags": [
+          "star-full",
+          "rate",
+          "star",
+          "favorite",
+          "bookmark"
+        ],
+        "defaultCode": 59865,
+        "grid": 16,
+        "attrs": []
+      },
+      "attrs": [],
+      "properties": {
+        "ligatures": "star-full, rate3",
+        "name": "star-full",
+        "order": 2,
+        "id": 218,
+        "prevSize": 32,
+        "code": 59865
+      },
+      "setIdx": 0,
+      "setId": 1,
+      "iconIdx": 217
+    },
+    {
+      "icon": {
+        "paths": [
+          "M755.188 64c-107.63 0-200.258 87.554-243.164 179-42.938-91.444-135.578-179-243.216-179-148.382 0-268.808 120.44-268.808 268.832 0 301.846 304.5 380.994 512.022 679.418 196.154-296.576 511.978-387.206 511.978-679.418 0-148.392-120.43-268.832-268.812-268.832z"
+        ],
+        "tags": [
+          "heart",
+          "like",
+          "love",
+          "favorite"
+        ],
+        "defaultCode": 59866,
+        "grid": 16,
+        "attrs": []
+      },
+      "attrs": [],
+      "properties": {
+        "ligatures": "heart, like",
+        "name": "heart",
+        "order": 4,
+        "id": 219,
+        "prevSize": 32,
+        "code": 59866
+      },
+      "setIdx": 0,
+      "setId": 1,
+      "iconIdx": 218
+    }
+  ],
   "height": 1024,
   "metadata": {
     "name": "icomoon"
@@ -30,7 +115,7 @@
       "bgColor": 16777215,
       "classSelector": ".icon"
     },
-    "historySize": 100,
+    "historySize": 50,
     "showCodes": true,
     "gridSize": 16
   }
