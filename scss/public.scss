@@ -32,9 +32,359 @@ html {
     font-size: medium;
     font-family: Roboto, RobotoDraft, Helvetica, Arial, sans-serif, "微軟正黑體", "Microsoft JhengHei";
 
-    background: $mainBackgroundColor;
-    background-image: $mainBackgroundImage;
+    background: rgba(235, 235, 235, 1.00);
 
     @include font-smoothing(antialiased);
   }
 }
+
+#main {
+  display: inline-block;
+  width: 100%;
+  max-width: 640px;
+
+  .avatar {
+    position: relative;
+    z-index: 2;
+    display: inline-block;
+    width: 75px;
+    height: 75px;
+    overflow: hidden;
+    border: 3px solid rgba(255, 255, 255, 1);
+    @include border-radius(50%);
+    @include box-shadow(1px 1px 5px rgba(0, 0, 0, .5));
+
+    img {
+      width: 100%;
+    }
+  }
+}
+$iconSize: 36px;
+#infos {
+  z-index: 1;
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  min-height: 60px;
+  padding-bottom: 40px;
+  
+  > i {
+    position: absolute;
+    top: 0;
+    left: calc(50% - 10px / 2);
+    display: inline-block;
+    width: 10px;
+    height: calc(100% - (25px + 8px));
+    z-index: 1;
+
+    &:before, &:after {
+      content: '';
+      position: absolute;
+      display: inline-block;
+      background-color: rgba(210, 210, 210, 1);
+    }
+    &:before {
+      left: calc(50% - 2px / 2);
+      top: 0;
+      width: 2px;
+      height: 100%;
+      border-right: 1px solid rgba(255, 255, 255, 1);
+    }
+    &:after {
+      left: 0;
+      bottom: 0;
+      width: 10px;
+      height: 10px;
+      @include border-radius(50%);
+      @include box-shadow(1px 1px 1px rgba(255, 255, 255, 1), inset 1px 1px 1px rgba(0, 0, 0, .1));
+    }
+  }
+  #load {
+    @include button;
+    position: absolute;
+    bottom: 0;
+    left: calc(50% - 80px / 2);
+    display: inline-block;
+    width: 80px;
+    height: 25px;
+    line-height: 25px;
+    z-index: 2;
+  }
+
+  .info {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    @include clearfix();
+    z-index: 3;
+    margin-top: 22px;
+
+    > i {
+      position: absolute;
+      left: calc(50% - #{$iconSize} / 2);
+      top: 0;
+      display: inline-block;
+      width: $iconSize;
+      height: $iconSize;
+      line-height: $iconSize;
+      font-size: 20px;
+      color: white;
+      z-index: 1;
+      text-align: center;
+      @include border-radius(50%);
+      @include text-shadow(1px 1px 1px rgba(0, 0, 0, .4));
+      @include box-shadow(1px 1px 4px rgba(0, 0, 0, .4));
+
+      &.icon-location {
+        background-color: rgba(253, 96, 89, 1.00);
+      }
+      &.icon-star-full {
+        background-color: rgba(254, 192, 61, 1.00);
+      }
+      &.icon-heart {
+        background-color: rgba(52, 204, 77, 1.00);
+      }
+    }
+    > time {
+      position: absolute;
+      top: 0;
+
+      display: inline-block;
+      width: 120px;
+      height: 40px;
+      font-size: 13px;
+      color: rgba(120, 120, 120, 1);
+      padding-top: 4px;
+      
+      &:before {
+        content: attr(data-time);
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        display: inline-block;
+        width: 100%;
+        font-size: 10px;
+        color: rgba(160, 160, 160, 1);
+      }
+    }
+
+    .content {
+      position: relative;
+      z-index: 2;
+      
+      display: inline-block;
+      
+      min-height: 50px;
+      background-color: white;
+      text-align: left;
+      @include border-radius(3px);
+      @include box-shadow(1px 1px 5px rgba(0, 0, 0, .3));
+      @include clearfix();
+      
+      img {
+        float: left;
+        width: 30px;
+        height: 30px;
+        // display: none;
+        margin-top: 8px;
+        margin-left: 16px;
+        @include border-radius(2px);
+        // @include box-shadow(1px 1px 4px rgba(0, 0, 0, .4));
+        
+        + h3 {
+          float: left;
+          width: calc(100% - (30px + 16px));
+          padding: 0 8px;
+        }
+      }
+      h3 {
+        display: inline-block;
+        width: 100%;
+        margin: 0;
+        float: left;
+        height: 45px;
+        line-height: 45px;
+        padding: 0 16px;
+      }
+      p {
+        display: inline-block;
+        width: 100%;
+        margin: 0;
+        padding: 0 16px;
+        font-size: 13px;
+      }
+      a {
+        @include a;
+        display: inline-block;
+        width: 100%;
+
+        font-size: 12px;
+        text-align: right;
+        height: 35px;
+        line-height: 35px;
+        padding-right: 16px;
+        border-top: 1px solid rgba(222, 222, 222, 1);
+        margin-top: 16px;
+      }
+    }
+  }
+}
+
+
+@include range-width(0, 400px) {
+  #infos {
+    .info {
+      margin-top: 32px;
+      + .info {
+        margin-top: 48px;
+      }
+      > i {
+        z-index: 4;
+        top: -$iconSize / 2;
+      }
+      > time {
+        display: none;
+      }
+      .content {
+        padding-top: 16px;
+        @include border-radius(0);
+      }
+    }
+  }
+};
+
+
+@include range-width(400px, 600px) {
+  #main {
+    text-align: left;
+
+    .avatar {
+      margin-left: 45px;
+    }
+  }
+  #infos {
+    > i {
+      left: 45px + 75px / 2 - 10px / 2;
+    }
+    #load {
+      left: 45px;
+    }
+    .info {
+      > i {
+        left: 45px + $iconSize / 2;
+      }
+      > time {
+        left: 0;
+        top: 34px;
+        text-align: right;
+        width: 45px + 75px / 2 - 4px;
+      }
+      .content {
+          float: right;
+          width: calc(100% - (45px + 75px - 8px));
+          margin-right: 8px;
+
+          &:after, &:before {
+            right: 100%;
+            top: 19px;
+            border: solid transparent;
+            content: " ";
+            height: 0;
+            width: 0;
+            position: absolute;
+            pointer-events: none;
+          }
+          $t: 7px;
+          &:after {
+            border-color: transparent;
+            border-right-color: rgba(255, 255, 255, 1.00);
+            border-width: $t;
+            margin-top: -$t;
+          }
+          &:before {
+            border-color: transparent;
+            border-right-color: rgba(200, 200, 200, 1.00);
+            border-width: ($t + 1px);
+            margin-top: -($t + 1px);
+          }
+        }
+    }
+  }
+};
+
+@include range-width(600px) {
+  #infos {
+    .info {
+      .content {
+        width: calc(50% - #{$iconSize + 10px} / 2);
+      }
+      &:nth-child(2n + 3) {
+        > time {
+          left: calc(50% - #{$iconSize} / 2 - 120px - 4px);
+          text-align: right;
+        }
+        .content {
+          float: right;
+          
+          &:after, &:before {
+            right: 100%;
+            top: 19px;
+            border: solid transparent;
+            content: " ";
+            height: 0;
+            width: 0;
+            position: absolute;
+            pointer-events: none;
+          }
+          $t: 7px;
+          &:after {
+            border-color: transparent;
+            border-right-color: rgba(255, 255, 255, 1.00);
+            border-width: $t;
+            margin-top: -$t;
+          }
+          &:before {
+            border-color: transparent;
+            border-right-color: rgba(200, 200, 200, 1.00);
+            border-width: ($t + 1px);
+            margin-top: -($t + 1px);
+          }
+        }
+      }
+      &:nth-child(2n + 4) {
+        > time {
+          right: calc(50% - #{$iconSize} / 2 - 120px - 4px);
+          text-align: left;
+        }
+        .content {
+          float: left;
+
+          $t: 7px;
+          &:after, &:before {
+            left: 100%;
+            top: 19px;
+            border: solid transparent;
+            content: " ";
+            height: 0;
+            width: 0;
+            position: absolute;
+            pointer-events: none;
+          }
+
+          &:after {
+            border-color: transparent;
+            border-left-color: rgba(255, 255, 255, 1.00);
+            border-width: $t;
+            margin-top: -$t;
+          }
+          &:before {
+            border-color: transparent;
+            border-left-color: rgba(200, 200, 200, 1.00);
+            border-width: ($t + 1px);
+            margin-top: -($t + 1px);
+          }
+        }
+      }
+    }
+  }
+};
