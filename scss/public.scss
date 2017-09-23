@@ -38,3 +38,50 @@ html {
     @include font-smoothing(antialiased);
   }
 }
+
+#bitmap {
+  $s: 16px;
+  display: inline-block;
+  margin: 50px;
+  @include clearfix();
+
+  @for $i from 1 through 50 {
+    &.w#{$i} {
+      width: $s * $i;
+    }
+    &.h#{$i} {
+      height: $s * $i;
+    }
+  }
+  
+  > div {
+    position: relative;
+    float: left;
+    display: inline-block;
+    width: $s;
+    height: $s;
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      @include box-shadow(0 0 1px rgba(0, 0, 0, .5));
+    }
+    @include transition(background-color .3s);
+
+    &.b0 {
+      background-color: rgba(255, 255, 255, 1);
+    }
+    &.b1 {
+      background-color: rgba(66, 133, 244, 1.00);
+    }
+    &.b2 {
+      background-color: rgba(234, 67, 53, 1.00);
+    }
+    &.b3 {
+      background-color: rgba(52, 168, 83, 1.00);
+    }
+  }
+}
